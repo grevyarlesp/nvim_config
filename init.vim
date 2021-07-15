@@ -18,10 +18,8 @@ Plug 'andweeb/presence.nvim', {'branch':'main'}
 Plug 'jpalardy/vim-slime'             " REPL integraion
 Plug 'neovim/nvim-lspconfig'
 
-
 Plug 'Olical/conjure', {'tag': 'v4.19.0'}
 Plug 'Olical/aniseed', { 'tag': 'v3.18.0' }
-
 
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-scripts/fcitx.vim'
