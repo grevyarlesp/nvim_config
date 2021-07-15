@@ -38,9 +38,8 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope registers<cr>
 
-nnoremap <leader>fc <cmd>lua require'telescope.builtin'.git_bcommits()<cr>
-nnoremap <leader>fs <cmd>lua require'telescope.builtin'.git_status()<cr>
-" nnoremap <leader>fs <cmd>lua require'telescope.builtin'.git_status()<cr>
+nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_bcommits()<cr>
+nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status()<cr>
 
 nnoremap <leader>fz <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<cr>
 nnoremap <leader>ft <cmd>lua require'telescope.builtin'.treesitter()<cr>
