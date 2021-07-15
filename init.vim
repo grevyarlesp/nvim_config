@@ -15,7 +15,7 @@ Plug 'folke/which-key.nvim', {'branch': 'main'}
 Plug 'ferrine/md-img-paste.vim'
 
 Plug 'andweeb/presence.nvim', {'branch':'main'}
-Plug 'jpalardy/vim-slime'             " REPL integraion
+Plug 'jpalardy/vim-slime', {'branch':'main'}             " REPL integraion
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'Olical/conjure', {'tag': 'v4.19.0'}
