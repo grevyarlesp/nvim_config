@@ -1,0 +1,6 @@
+plugged/*
+tags
+autoload/*
+*.swp
+.netrwhist
+.ccls-cache
