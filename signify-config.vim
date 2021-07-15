@@ -21,3 +21,4 @@ highlight SignifySignAdd                  ctermbg=green                guibg=#00
 highlight SignifySignDelete ctermfg=black ctermbg=red    guifg=#ffffff guibg=#ff0000
 highlight SignifySignChange ctermfg=black ctermbg=yellow guifg=#000000 guibg=#ffff00
 
+let g:signify_disable_by_default=1
