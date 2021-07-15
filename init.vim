@@ -141,7 +141,8 @@ source ~/.config/nvim/vim-gutentags-config.vim
 source ~/.config/nvim/vista-config.vim
 source ~/.config/nvim/vim-slime-config.vim
 source ~/.config/nvim/barbar-config.vim
-" source ~/.config/nvim/signify-config.vim
+source ~/.config/nvim/signify-config.vim
+source ~/.config/nvim/lspsaga-config.vim
 
 luafile ~/.config/nvim/nvim-lspconfig.lua
 luafile ~/.config/nvim/nvim-treesitter-config.lua
