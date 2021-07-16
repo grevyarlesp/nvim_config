@@ -9,6 +9,7 @@
 " Plugins with vim-plug
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'ActivityWatch/aw-watcher-vim'
 " which key
 Plug 'folke/which-key.nvim', {'branch': 'main'}
 " Image paste
@@ -211,9 +212,10 @@ let g:mdip_imgdir = 'img'
 let g:mdip_imgname = 'image'
 " }}}
 
-autocmd BufNewFile,BufRead *.c source ~/.config/nvim/c.vim
-autocmd BufNewFile,BufRead *.cpp source ~/.config/nvim/cpp.vim
-autocmd BufNewFile,BufRead *.hs source ~/.config/nvim/hs.vim
+" autocmd BufNewFile,BufRead *.c source ~/.config/nvim/c.vim
+" autocmd BufNewFile,BufRead *.cpp source ~/.config/nvim/cpp.vim
+" autocmd BufNewFile,BufRead *.hs source ~/.config/nvim/hs.vim
+
 hi Comment ctermfg=lightgreen guifg=lightgreen
 hi Comment ctermfg=lightgreen guifg=lightgreen
 hi LineNr guifg=lightgreen
