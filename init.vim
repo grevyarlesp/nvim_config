@@ -9,7 +9,6 @@
 " Plugins with vim-plug
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'ActivityWatch/aw-watcher-vim'
 " which key
 Plug 'folke/which-key.nvim', {'branch': 'main'}
 " Image paste
