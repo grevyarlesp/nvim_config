@@ -29,7 +29,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'nvim-treesitter/playground'
-Plug 'liuchengxu/vista.vim'
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
@@ -139,7 +138,6 @@ source ~/.config/nvim/quick-scope-config.vim
 source ~/.config/nvim/vimwiki-config.vim
 source ~/.config/nvim/vim-easyescape-config.vim
 source ~/.config/nvim/vim-gutentags-config.vim
-source ~/.config/nvim/vista-config.vim
 source ~/.config/nvim/vim-slime-config.vim
 source ~/.config/nvim/barbar-config.vim
 source ~/.config/nvim/signify-config.vim
