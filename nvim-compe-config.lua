@@ -21,14 +21,17 @@ require'compe'.setup {
   };
 
   source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-    luasnip = true;
+    path = false,
+    calc = false,
+    nvim_lsp = true,
+    nvim_lua = false,
+    ultisnips = true,
+    treesitter = false,
+    tags = true,
+    vsnip = false,
+    spell = false,
+    buffer = false,
+    snippets_nvim = false,
   };
 }
 

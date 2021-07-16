@@ -23,7 +23,7 @@ require('lualine').setup{
     sections = {
         lualine_a = { {'mode', upper = false} },
         lualine_b = { {'FugitiveHead', icon = ''} },
-        lualine_c = { {'filename', file_status = true}, 'CurrentFunctionVista'},
+        lualine_c = { {'filename', file_status = true}},
         lualine_x = { {'diagnostics', sources={'nvim_lsp'}}, 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location'  },
