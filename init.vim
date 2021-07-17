@@ -31,7 +31,9 @@ Plug 'nvim-treesitter/playground'
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-Plug 'ludovicchabant/vim-gutentags'   " Auto (re)generate tag files
+
+Plug 'preservim/tagbar'
+
 Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
 " Markdown preview 
@@ -136,7 +138,6 @@ source ~/.config/nvim/better-sml-config.vim
 source ~/.config/nvim/quick-scope-config.vim
 source ~/.config/nvim/vimwiki-config.vim
 source ~/.config/nvim/vim-easyescape-config.vim
-source ~/.config/nvim/vim-gutentags-config.vim
 source ~/.config/nvim/vim-slime-config.vim
 source ~/.config/nvim/barbar-config.vim
 source ~/.config/nvim/signify-config.vim
