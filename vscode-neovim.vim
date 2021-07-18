@@ -1,5 +1,4 @@
 call plug#begin('~/.config/nvim/plugged')
-
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'unblevable/quick-scope'
 call plug#end()
