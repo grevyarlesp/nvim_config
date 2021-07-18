@@ -22,5 +22,3 @@ let g:table_mode_map_prefix = ',t'
 let g:table_mode_delete_row_map = ',tdd'
 let g:table_mode_delete_column_map = ',tdc'
 " }}}
-
-
