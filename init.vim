@@ -118,7 +118,7 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 Plug 'preservim/tagbar'
 
 Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'glepnir/lspsaga.nvim', {'branch' : 'main'}
 " Markdown preview 
 "
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -154,7 +154,7 @@ let g:tokyonight_style='night'
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 " Git integration
-Plug 'mhinz/vim-signify'
+Plug 'lewis6991/gitsigns.nvim', {'branch':'main'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
@@ -220,7 +220,6 @@ source ~/.config/nvim/vimwiki-config.vim
 source ~/.config/nvim/vim-easyescape-config.vim
 source ~/.config/nvim/vim-slime-config.vim
 source ~/.config/nvim/barbar-config.vim
-source ~/.config/nvim/signify-config.vim
 source ~/.config/nvim/lspsaga-config.vim
 
 luafile ~/.config/nvim/nvim-lspconfig.lua
