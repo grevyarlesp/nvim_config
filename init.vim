@@ -5,6 +5,7 @@
 " | || |\  || |  | |_  \ V /  | || |  | |
 "|___|_| \_|___| |_(_)  \_/  |___|_|  |_|
 "========================================
+
 "  
 set tabstop=4
 set shiftwidth=4
@@ -301,18 +302,14 @@ nmap <A-0> :TagbarToggle<CR>
 
 " }}}
 "
-" {{{
-"
-
+" {{{ indent_blankline
 let g:indent_blankline_char_highlight_list = ['Error', 'Function', 'IndentColor']
 let g:indent_blankline_char = '│'
 " let g:indent_blankline_show_current_context = v:true
 " let g:indent_blankline_use_treesitter = v:true
 " let g:indent_blankline_space_char = '.'
-
-
 " }}}
-"
+
 "highlighted yank
 " augroup highlight_yank
 "     autocmd!
