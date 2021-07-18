@@ -116,6 +116,7 @@ Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 Plug 'preservim/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim', {'branch' : 'main'}
@@ -214,25 +215,26 @@ set background=dark
 " basic configurations 
 
 " Plugin configs {{{
-source ~/.config/nvim/better-sml-config.vim
-source ~/.config/nvim/quick-scope-config.vim
-source ~/.config/nvim/vimwiki-config.vim
-source ~/.config/nvim/vim-easyescape-config.vim
-source ~/.config/nvim/vim-slime-config.vim
-source ~/.config/nvim/barbar-config.vim
-source ~/.config/nvim/lspsaga-config.vim
+source ~/.config/nvim/plugconfig/better-sml-config.vim
+source ~/.config/nvim/plugconfig/quick-scope-config.vim
+source ~/.config/nvim/plugconfig/vimwiki-config.vim
+source ~/.config/nvim/plugconfig/vim-easyescape-config.vim
+source ~/.config/nvim/plugconfig/vim-slime-config.vim
+source ~/.config/nvim/plugconfig/barbar-config.vim
+source ~/.config/nvim/plugconfig/lspsaga-config.vim
 
-luafile ~/.config/nvim/nvim-lspconfig.lua
-luafile ~/.config/nvim/nvim-treesitter-config.lua
-luafile ~/.config/nvim/nvim-lualine-config.lua
-luafile ~/.config/nvim/telescope-config.lua
-luafile ~/.config/nvim/nvim-lspsaga-config.lua
-luafile ~/.config/nvim/presence-config.lua
-luafile ~/.config/nvim/nvim-compe-config.lua
+luafile ~/.config/nvim/plugconfig/nvim-lspconfig.lua
+luafile ~/.config/nvim/plugconfig/nvim-treesitter-config.lua
+luafile ~/.config/nvim/plugconfig/nvim-lualine-config.lua
+luafile ~/.config/nvim/plugconfig/telescope-config.lua
+luafile ~/.config/nvim/plugconfig/nvim-lspsaga-config.lua
+luafile ~/.config/nvim/plugconfig/presence-config.lua
+luafile ~/.config/nvim/plugconfig/nvim-compe-config.lua
+luafile ~/.config/nvim/plugconfig/which-key.lua
+luafile ~/.config/nvim/plugconfig/gitsigns.lua
+
 " luafile ~/.config/nvim/nvim-ts-rainbow-config.lua 
 " luafile ~/.config/nvim/neuron-config.lua
-luafile ~/.config/nvim/which-key.lua
-
 " }}}
 
 " Plugins config - too small to deserve their own files {{{ 
