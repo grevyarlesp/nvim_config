@@ -6,12 +6,12 @@
 "|___|_| \_|___| |_(_)  \_/  |___|_|  |_|
 "========================================
 
-"  
 set tabstop=4
 set shiftwidth=4
+
 set expandtab
 set number
-set smartindent
+set autoindent
 
 set nocompatible
 set ai
@@ -91,7 +91,6 @@ vnoremap <leader>P "+P
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'lukas-reineke/indent-blankline.nvim'
 
 " which key
 Plug 'folke/which-key.nvim', {'branch': 'main'}
@@ -234,6 +233,8 @@ luafile ~/.config/nvim/plugconfig/nvim-compe-config.lua
 luafile ~/.config/nvim/plugconfig/which-key.lua
 luafile ~/.config/nvim/plugconfig/gitsigns.lua
 
+
+
 " luafile ~/.config/nvim/nvim-ts-rainbow-config.lua 
 " luafile ~/.config/nvim/neuron-config.lua
 " }}}
@@ -302,13 +303,7 @@ nmap <A-0> :TagbarToggle<CR>
 
 " }}}
 "
-" {{{ indent_blankline
-let g:indent_blankline_char_highlight_list = ['Error', 'Function', 'IndentColor']
-let g:indent_blankline_char = '│'
-" let g:indent_blankline_show_current_context = v:true
-" let g:indent_blankline_use_treesitter = v:true
-" let g:indent_blankline_space_char = '.'
-" }}}
+"                   
 
 "highlighted yank
 " augroup highlight_yank
