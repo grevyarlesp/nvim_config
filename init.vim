@@ -142,8 +142,6 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'JuliaEditorSupport/julia-vim'
 
 Plug 'derekwyatt/vim-fswitch'
-Plug 'justinmk/vim-syntax-extra'
-Plug 'zhou13/vim-easyescape'
 Plug 'folke/tokyonight.nvim', {'branch':'main'}
 let g:tokyonight_style='night'
 let g:tokyonight_italic_functions = 1
@@ -204,7 +202,6 @@ set background=dark
 source ~/.config/nvim/plugconfig/better-sml-config.vim
 source ~/.config/nvim/plugconfig/quick-scope-config.vim
 source ~/.config/nvim/plugconfig/vimwiki-config.vim
-source ~/.config/nvim/plugconfig/vim-easyescape-config.vim
 source ~/.config/nvim/plugconfig/vim-slime-config.vim
 source ~/.config/nvim/plugconfig/barbar-config.vim
 source ~/.config/nvim/plugconfig/lspsaga-config.vim

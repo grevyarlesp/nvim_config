@@ -19,8 +19,12 @@ return require('packer').startup(function()
         vim.g.vimtex_quickfix_mode=0
         vim.g.vimtex_complete_close_braces = 1
         vim.g.tex_conceal='abdmg'
+        vim.set.conceallevel=2
     end
-
     }
+    -- syntax for a bunch of languages
+    use {'justinmk/vim-syntax-extra'} 
+
+
 
 end)
