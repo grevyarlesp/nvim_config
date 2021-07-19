@@ -97,10 +97,6 @@ Plug 'ferrine/md-img-paste.vim'
 Plug 'andweeb/presence.nvim', {'branch':'main'}
 Plug 'jpalardy/vim-slime', {'branch':'main'}             " REPL integraion
 Plug 'neovim/nvim-lspconfig'
-
-Plug 'Olical/conjure',
-Plug 'Olical/aniseed', 
-
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-scripts/fcitx.vim'
 
@@ -119,7 +115,6 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim', {'branch' : 'main'}
 " Markdown preview 
 "
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Telescope
 
@@ -167,7 +162,6 @@ Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
 
 " Status line
-Plug 'hoob3rt/lualine.nvim'
 
 cal plug#end()
 
@@ -208,7 +202,6 @@ source ~/.config/nvim/plugconfig/lspsaga-config.vim
 
 luafile ~/.config/nvim/plugconfig/nvim-lspconfig.lua
 luafile ~/.config/nvim/plugconfig/nvim-treesitter-config.lua
-luafile ~/.config/nvim/plugconfig/nvim-lualine-config.lua
 luafile ~/.config/nvim/plugconfig/telescope-config.lua
 luafile ~/.config/nvim/plugconfig/nvim-lspsaga-config.lua
 luafile ~/.config/nvim/plugconfig/presence-config.lua
