@@ -94,7 +94,6 @@ Plug 'ferrine/md-img-paste.vim'
 
 Plug 'andweeb/presence.nvim', {'branch':'main'}
 Plug 'jpalardy/vim-slime', {'branch':'main'}             " REPL integraion
-Plug 'neovim/nvim-lspconfig'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-scripts/fcitx.vim'
 
@@ -149,6 +148,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 cal plug#end()
 
 " Auto Insert Header
+
 function! s:insert_gates()
     let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
     execute "normal! i#ifndef " . gatename

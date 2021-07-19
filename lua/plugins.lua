@@ -2,7 +2,8 @@ return require('packer').startup(function()
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
     -- CORE
-    -- which-key
+    use { 'neovim/nvim-lspconfig' }
+    
     use { 'nvim-lua/popup.nvim' }
     use { 'nvim-lua/plenary.nvim' }
     use { 'nvim-telescope/telescope.nvim',
@@ -10,11 +11,7 @@ return require('packer').startup(function()
             require('core.telescope')
         end
     }
-    use { 'folke/which-key.nvim', branch= 'main',
-        config = function()
-            require('core.which-key')
-        end
-    }
+
     use {'unblevable/quick-scope',
         config = function()
             require('core.quick-scope')
