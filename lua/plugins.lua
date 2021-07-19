@@ -3,27 +3,50 @@ return require('packer').startup(function()
     use {'wbthomason/packer.nvim'}
     -- CORE
     -- which-key
-    use { 'folke/which-key.nvim', branch= 'main'}
-
+    use { 'nvim-lua/popup.nvim' }
+    use { 'nvim-lua/plenary.nvim' }
+    use { 'nvim-telescope/telescope.nvim',
+        config = function()
+            require('core.telescope')
+        end
+    }
+    use { 'folke/which-key.nvim', branch= 'main',
+        config = function()
+            require('core.which-key')
+        end
+    }
+    use {'unblevable/quick-scope',
+        config = function()
+            require('core.quick-scope')
+        end
+    }
     -- status line
     use { 'hoob3rt/lualine.nvim',
         config = function()
             -- require('../plugconfig/nvim-lualine-config')
-            require('core/lualine')
+            require('core.lualine')
         end,
         event = "BufWinEnter"
     }
     -- commenting
     use {'terrortylor/nvim-comment',
-    config = function() require('nvim_comment').setup() end
+        config = function() require('nvim_comment').setup() end
     }
+
+    -- Can't load this lazily
+    use {'JuliaEditorSupport/julia-vim'}
 
     -- Lanaguage-specific
     -- Scheme -
-    use { 'Olical/conjure' }
+    use {'Olical/aniseed'
+    }
+    use { 'Olical/conjure',
+        ft={"scheme"}
+    }
     use {'sevko/vim-nand2tetris-syntax'}
     use {'aklt/plantuml-syntax'}
     use {'lervag/vimtex',
+    ft = {"tex"},
     config = function()
         vim.g.tex_flavor = 'latex'
         vim.g.vimtex_view_method = 'zathura'

@@ -89,7 +89,6 @@ vnoremap <leader>P "+P
 " Plugins with vim-plug
 lua require('plugins')
 call plug#begin('~/.config/nvim/plugged')
-" which key
 " Image paste
 Plug 'ferrine/md-img-paste.vim'
 
@@ -112,14 +111,9 @@ Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim', {'branch' : 'main'}
-" Markdown preview 
-" Telescope
 
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 "
-Plug 'jbyuki/nabla.nvim'
+" Plug 'jbyuki/nabla.nvim'
 
 " PLant uml
 " Syntax highlight for PlantUML
@@ -149,9 +143,6 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-
-Plug 'unblevable/quick-scope'
-Plug 'justinmk/vim-sneak'
 
 " Status line
 
@@ -185,7 +176,6 @@ set background=dark
 " basic configurations 
 
 " Plugin configs {{{
-source ~/.config/nvim/plugconfig/quick-scope-config.vim
 source ~/.config/nvim/plugconfig/vimwiki-config.vim
 source ~/.config/nvim/plugconfig/vim-slime-config.vim
 source ~/.config/nvim/plugconfig/barbar-config.vim
@@ -193,11 +183,9 @@ source ~/.config/nvim/plugconfig/lspsaga-config.vim
 
 luafile ~/.config/nvim/plugconfig/nvim-lspconfig.lua
 luafile ~/.config/nvim/plugconfig/nvim-treesitter-config.lua
-luafile ~/.config/nvim/plugconfig/telescope-config.lua
 luafile ~/.config/nvim/plugconfig/nvim-lspsaga-config.lua
 luafile ~/.config/nvim/plugconfig/presence-config.lua
 luafile ~/.config/nvim/plugconfig/nvim-compe-config.lua
-luafile ~/.config/nvim/plugconfig/which-key.lua
 luafile ~/.config/nvim/plugconfig/gitsigns.lua
 
 
@@ -224,7 +212,7 @@ let b:fswitchlocs='./'
 " }}}
 "
 " {{{ nabla
-nnoremap <F4> :lua require("nabla").place_inline()<CR>
+" nnoremap <F4> :lua require("nabla").place_inline()<CR>
 " }}}
 
 " {{{ table-mode
