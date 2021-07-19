@@ -90,7 +90,6 @@ vnoremap <leader>P "+P
 lua require('plugins')
 call plug#begin('~/.config/nvim/plugged')
 " Image paste
-Plug 'ferrine/md-img-paste.vim'
 
 Plug 'andweeb/presence.nvim', {'branch':'main'}
 Plug 'jpalardy/vim-slime', {'branch':'main'}             " REPL integraion
@@ -118,7 +117,6 @@ Plug 'glepnir/lspsaga.nvim', {'branch' : 'main'}
 " Syntax highlight for PlantUML
 
 Plug 'tyru/open-browser.vim'
-Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 " PLS 
 

@@ -41,7 +41,11 @@ return require('packer').startup(function()
         ft={"scheme"}
     }
     use {'sevko/vim-nand2tetris-syntax'}
-    use {'aklt/plantuml-syntax'}
+
+    -- Plantuml
+    use {'aklt/plantuml-syntax', ft="plantuml"}
+    use {'weirongxu/plantuml-previewer.vim', ft="plantuml"}
+
     use {'lervag/vimtex',
     ft = {"tex"},
     config = function()
@@ -59,5 +63,7 @@ return require('packer').startup(function()
 
     -- Markdown
     use { 'iamcco/markdown-preview.nvim', opt=true, ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+
+    use { 'ferrine/md-img-paste.vim', ft = {'markdown'} }
     
 end)
