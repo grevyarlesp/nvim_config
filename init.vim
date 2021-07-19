@@ -257,9 +257,7 @@ let b:fswitchlocs='./'
 " }}}
 "
 " {{{ nabla
-
 nnoremap <F4> :lua require("nabla").place_inline()<CR>
-
 " }}}
 
 " {{{ table-mode
@@ -302,12 +300,10 @@ hi clear Conceal
 nmap <A-0> :TagbarToggle<CR>
 
 " }}}
-"
-"                   
 
-"highlighted yank
-" augroup highlight_yank
-"     autocmd!
-"     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
-" augroup END
+" highlighted yank
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
 " {{{
