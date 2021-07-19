@@ -1,4 +1,3 @@
-
 "========================================
 "|_ _| \ | |_ _|_   _\ \   / /_ _|  \/  |
 " | ||  \| || |  | |  \ \ / / | || |\/| |
@@ -19,18 +18,18 @@ set scrolloff=999
 set sidescrolloff=999
 set mouse=a
 
-" set clipboard=unnamedplus
+filetype plugin on
 filetype plugin indent on
+
 " Syntax highlighting
 syntax on
 " Stop vim from wrapping lines at a middle of a word
 set nowrap
+
 " set cursorline
 set linebreak
 let mapleader = "\<Space>"
 set encoding=utf-8
-
-filetype plugin on
 
 set imdisable iminsert=0 imsearch=-1
 set listchars=tab:▸\ ,eol:¬
@@ -90,8 +89,6 @@ vnoremap <leader>P "+P
 " Plugins with vim-plug
 
 call plug#begin('~/.config/nvim/plugged')
-
-
 " which key
 Plug 'folke/which-key.nvim', {'branch': 'main'}
 " Image paste
@@ -101,8 +98,8 @@ Plug 'andweeb/presence.nvim', {'branch':'main'}
 Plug 'jpalardy/vim-slime', {'branch':'main'}             " REPL integraion
 Plug 'neovim/nvim-lspconfig'
 
-Plug 'Olical/conjure', {'tag': 'v4.19.0'}
-Plug 'Olical/aniseed', { 'tag': 'v3.18.0' }
+Plug 'Olical/conjure',
+Plug 'Olical/aniseed', 
 
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-scripts/fcitx.vim'
@@ -129,7 +126,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
 "
 Plug 'jbyuki/nabla.nvim'
 
@@ -231,7 +227,7 @@ luafile ~/.config/nvim/plugconfig/nvim-lspsaga-config.lua
 luafile ~/.config/nvim/plugconfig/presence-config.lua
 luafile ~/.config/nvim/plugconfig/nvim-compe-config.lua
 luafile ~/.config/nvim/plugconfig/which-key.lua
-luafile ~/.config/nvim/plugconfig/gitsigns.lua
+" luafile ~/.config/nvim/plugconfig/gitsigns.lua
 
 
 
@@ -300,7 +296,6 @@ hi clear Conceal
 nmap <A-0> :TagbarToggle<CR>
 
 " }}}
-
 " highlighted yank
 augroup highlight_yank
     autocmd!
