@@ -87,7 +87,7 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 " Plugins with vim-plug
-
+lua require('plugins')
 call plug#begin('~/.config/nvim/plugged')
 " which key
 Plug 'folke/which-key.nvim', {'branch': 'main'}
@@ -133,7 +133,6 @@ Plug 'jbyuki/nabla.nvim'
 " Syntax highlight for PlantUML
 
 Plug 'tyru/open-browser.vim'
-Plug 'aklt/plantuml-syntax'
 Plug 'weirongxu/plantuml-previewer.vim'
 
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
@@ -143,7 +142,6 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'JuliaEditorSupport/julia-vim'
 
 Plug 'derekwyatt/vim-fswitch'
-Plug 'sevko/vim-nand2tetris-syntax'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'zhou13/vim-easyescape'
 Plug 'folke/tokyonight.nvim', {'branch':'main'}
@@ -167,15 +165,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 Plug 'jez/vim-better-sml'
 
-Plug 'lervag/vimtex'
-
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_quickfix_mode=0
-let g:vimtex_complete_close_braces = 1
-let g:tex_conceal='abdmg'
-
-Plug 'tpope/vim-commentary'
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
 
@@ -183,6 +172,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'hoob3rt/lualine.nvim'
 
 cal plug#end()
+
 " Auto Insert Header
 function! s:insert_gates()
     let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
@@ -284,12 +274,10 @@ let g:mdip_imgname = 'image'
 " autocmd BufNewFile,BufRead *.cpp source ~/.config/nvim/cpp.vim
 " autocmd BufNewFile,BufRead *.hs source ~/.config/nvim/hs.vim
 
-hi Comment ctermfg=lightgreen guifg=lightgreen
-hi Comment ctermfg=lightgreen guifg=lightgreen
+" hi Comment ctermfg=lightgreen guifg=lightgreen
 hi LineNr guifg=lightgreen
 hi! link SignColumn LineNr
 hi clear Conceal
-
 " }}} 
 
 " {{{

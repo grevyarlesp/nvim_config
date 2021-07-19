@@ -4,3 +4,4 @@ autoload/*
 *.swp
 .netrwhist
 .ccls-cache
+/plugin
