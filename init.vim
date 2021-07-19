@@ -90,7 +90,6 @@ vnoremap <leader>P "+P
 lua require('plugins')
 call plug#begin('~/.config/nvim/plugged')
 " which key
-Plug 'folke/which-key.nvim', {'branch': 'main'}
 " Image paste
 Plug 'ferrine/md-img-paste.vim'
 
@@ -114,8 +113,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim', {'branch' : 'main'}
 " Markdown preview 
-"
-
 " Telescope
 
 Plug 'nvim-lua/popup.nvim'
@@ -129,12 +126,9 @@ Plug 'jbyuki/nabla.nvim'
 
 Plug 'tyru/open-browser.vim'
 Plug 'weirongxu/plantuml-previewer.vim'
-
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 " PLS 
 
-
-Plug 'JuliaEditorSupport/julia-vim'
 
 Plug 'derekwyatt/vim-fswitch'
 Plug 'folke/tokyonight.nvim', {'branch':'main'}
@@ -147,7 +141,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 
-
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/vim-easy-align'
 Plug 'SirVer/ultisnips' 
@@ -156,7 +149,6 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-Plug 'jez/vim-better-sml'
 
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
@@ -193,7 +185,6 @@ set background=dark
 " basic configurations 
 
 " Plugin configs {{{
-source ~/.config/nvim/plugconfig/better-sml-config.vim
 source ~/.config/nvim/plugconfig/quick-scope-config.vim
 source ~/.config/nvim/plugconfig/vimwiki-config.vim
 source ~/.config/nvim/plugconfig/vim-slime-config.vim

@@ -1,7 +1,10 @@
 return require('packer').startup(function()
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
-    
+    -- CORE
+    -- which-key
+    use { 'folke/which-key.nvim', branch= 'main'}
+
     -- status line
     use { 'hoob3rt/lualine.nvim',
         config = function()
