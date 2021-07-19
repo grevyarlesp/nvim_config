@@ -227,7 +227,7 @@ luafile ~/.config/nvim/plugconfig/nvim-lspsaga-config.lua
 luafile ~/.config/nvim/plugconfig/presence-config.lua
 luafile ~/.config/nvim/plugconfig/nvim-compe-config.lua
 luafile ~/.config/nvim/plugconfig/which-key.lua
-" luafile ~/.config/nvim/plugconfig/gitsigns.lua
+luafile ~/.config/nvim/plugconfig/gitsigns.lua
 
 
 
