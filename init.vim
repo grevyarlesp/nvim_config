@@ -90,7 +90,6 @@ vnoremap <leader>P "+P
 lua require('plugins')
 
 " Auto Insert Header
-
 function! s:insert_gates()
     let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
     execute "normal! i#ifndef " . gatename
@@ -113,7 +112,6 @@ imap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 imap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 lua << EOF
-
 vim.g.tokyonight_style='night'
 vim.g.tokyonight_italic_functions = 1
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "chadtree" }
@@ -143,14 +141,15 @@ luafile ~/.config/nvim/plugconfig/nvim-lspconfig.lua
 " Plugins config - too small to deserve their own files {{{ 
 
 " {{{ FSwitch bindings
+
+au BufEnter *.h  let b:fswitchdst = "c,cpp,cc,m"
+au BufEnter *.cc let b:fswitchdst = "h,hpp"
 nnoremap <silent> <leader>h :FSHere<cr>
 nnoremap <silent> <leader>oh :FSSplitLeft<cr>
 nnoremap <silent> <leader>oj :FSSplitBelow<cr>
 nnoremap <silent> <leader>ok :FSSplitAbove<cr>
 nnoremap <silent> <leader>ol :FSSplitRight<cr>
 
-au BufEnter *.h  let b:fswitchdst = "c,cpp,cc,m"
-au BufEnter *.cc let b:fswitchdst = "h,hpp"
 let b:fswitchlocs='./'
 
 " }}}

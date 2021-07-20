@@ -97,7 +97,9 @@ return require('packer').startup(function(use)
     use { 'tyru/open-browser.vim'}
     use { 'ms-jpq/chadtree', branch= 'chad', run = 'python3 -m chadtree deps'}
     use { 'derekwyatt/vim-fswitch'}
-    use { 'vimwiki/vimwiki'}
+    use { 'vimwiki/vimwiki',
+        cmd = 'VimwikiIndex'
+    }
     use { 'junegunn/vim-easy-align'}
     use { 'SirVer/ultisnips',
         config = function()
