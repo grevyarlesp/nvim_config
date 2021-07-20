@@ -5,9 +5,9 @@
 "|___|_| \_|___| |_(_)  \_/  |___|_|  |_|
 "========================================
 
+
 set tabstop=4
 set shiftwidth=4
-
 set expandtab
 set number
 set autoindent
@@ -88,62 +88,6 @@ vnoremap <leader>P "+P
 
 " Plugins with vim-plug
 lua require('plugins')
-call plug#begin('~/.config/nvim/plugged')
-" Image paste
-
-Plug 'andweeb/presence.nvim', {'branch':'main'}
-Plug 'jpalardy/vim-slime', {'branch':'main'}             " REPL integraion
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'vim-scripts/fcitx.vim'
-
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
-Plug 'nvim-treesitter/playground'
-
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-Plug 'preservim/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
-
-Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim', {'branch' : 'main'}
-
-"
-" Plug 'jbyuki/nabla.nvim'
-
-" PLant uml
-" Syntax highlight for PlantUML
-
-Plug 'tyru/open-browser.vim'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-" PLS 
-
-
-Plug 'derekwyatt/vim-fswitch'
-Plug 'folke/tokyonight.nvim', {'branch':'main'}
-let g:tokyonight_style='night'
-let g:tokyonight_italic_functions = 1
-let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-" Git integration
-Plug 'lewis6991/gitsigns.nvim', {'branch':'main'}
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim'
-
-Plug 'vimwiki/vimwiki'
-Plug 'junegunn/vim-easy-align'
-Plug 'SirVer/ultisnips' 
-let g:UltiSnipsSnippetDirectories=["~/.config/nvim/custom_snippets"]
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-
-" Status line
-
-cal plug#end()
 
 " Auto Insert Header
 
@@ -168,6 +112,21 @@ imap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 imap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 imap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
+lua << EOF
+
+vim.g.tokyonight_style='night'
+vim.g.tokyonight_italic_functions = 1
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "chadtree" }
+
+vim.opt.conceallevel=2
+vim.g.tex_flavor = 'latex'
+vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_quickfix_mode=0
+vim.g.vimtex_complete_close_braces = 1
+vim.g.tex_conceal='abdmg'
+-- vim.g.vimtex_syntax_conceal = {'accents', 'math_bound', 'math_super_sub', 'math_fracs', 'math_delimiter'}
+EOF
+
 colorscheme tokyonight
 set background=dark
 
@@ -176,20 +135,9 @@ set background=dark
 " Plugin configs {{{
 source ~/.config/nvim/plugconfig/vimwiki-config.vim
 source ~/.config/nvim/plugconfig/vim-slime-config.vim
-source ~/.config/nvim/plugconfig/barbar-config.vim
-source ~/.config/nvim/plugconfig/lspsaga-config.vim
 
 luafile ~/.config/nvim/plugconfig/nvim-lspconfig.lua
-luafile ~/.config/nvim/plugconfig/nvim-treesitter-config.lua
-luafile ~/.config/nvim/plugconfig/nvim-lspsaga-config.lua
-luafile ~/.config/nvim/plugconfig/presence-config.lua
-luafile ~/.config/nvim/plugconfig/nvim-compe-config.lua
-luafile ~/.config/nvim/plugconfig/gitsigns.lua
 
-
-
-" luafile ~/.config/nvim/nvim-ts-rainbow-config.lua 
-" luafile ~/.config/nvim/neuron-config.lua
 " }}}
 
 " Plugins config - too small to deserve their own files {{{ 
