@@ -86,6 +86,7 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
+set conceallevel=2
 " Plugins with vim-plug
 lua require('plugins')
 
@@ -116,13 +117,11 @@ vim.g.tokyonight_style='night'
 vim.g.tokyonight_italic_functions = 1
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "chadtree" }
 
-vim.opt.conceallevel=2
 vim.g.tex_flavor = 'latex'
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_quickfix_mode=0
 vim.g.vimtex_complete_close_braces = 1
 vim.g.tex_conceal='abdmg'
--- vim.g.vimtex_syntax_conceal = {'accents', 'math_bound', 'math_super_sub', 'math_fracs', 'math_delimiter'}
 EOF
 
 colorscheme tokyonight
@@ -133,9 +132,7 @@ set background=dark
 " Plugin configs {{{
 source ~/.config/nvim/plugconfig/vimwiki-config.vim
 source ~/.config/nvim/plugconfig/vim-slime-config.vim
-
 luafile ~/.config/nvim/plugconfig/nvim-lspconfig.lua
-
 " }}}
 
 " Plugins config - too small to deserve their own files {{{ 
@@ -204,3 +201,5 @@ augroup highlight_yank
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 " {{{
+" let g:presence_log_level="debug"
+"

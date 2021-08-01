@@ -1,6 +1,8 @@
 return require('packer').startup(function(use)
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
+
+    use {'ActivityWatch/aw-watcher-vim'}
     -- GIT
     --
     use {'lewis6991/gitsigns.nvim', branch='main',
@@ -97,9 +99,8 @@ return require('packer').startup(function(use)
     use { 'tyru/open-browser.vim'}
     use { 'ms-jpq/chadtree', branch= 'chad', run = 'python3 -m chadtree deps'}
     use { 'derekwyatt/vim-fswitch'}
-    use { 'vimwiki/vimwiki',
-        cmd = 'VimwikiIndex'
-    }
+    use { 'vimwiki/vimwiki'}
+    use { 'tools-life/taskwiki'}
     use { 'junegunn/vim-easy-align'}
     use { 'SirVer/ultisnips',
         config = function()
@@ -126,7 +127,15 @@ return require('packer').startup(function(use)
     use {'weirongxu/plantuml-previewer.vim', ft="plantuml"}
 
     use {'lervag/vimtex',
-    ft = {"tex"},
+    -- ft = {"tex"},
+    config = function()
+        vim.opt.conceallevel=2
+        vim.g.tex_flavor = 'latex'
+        vim.g.vimtex_view_method = 'zathura'
+        vim.g.vimtex_quickfix_mode=0
+        vim.g.vimtex_complete_close_braces = 1
+        vim.g.tex_conceal='abdmg'
+    end
     }
     -- syntax for a bunch of languages
     use {'justinmk/vim-syntax-extra'} 
