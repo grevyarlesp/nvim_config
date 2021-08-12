@@ -182,7 +182,8 @@ let g:mdip_imgname = 'image'
 " hi Comment ctermfg=lightgreen guifg=lightgreen
 hi LineNr guifg=lightgreen
 hi! link SignColumn LineNr
-" hi clear Conceal
+hi clear Conceal
+hi Conceal guifg=lightgreen
 " }}} 
 
 " {{{
@@ -199,7 +200,3 @@ augroup END
 "
 "
 "
-set conceallevel=2
-let g:tex_flavor='latex'
-let g:tex_conceal='abdmg'
-let g:vimtex_quickfix_mode=0
