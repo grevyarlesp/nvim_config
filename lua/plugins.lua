@@ -6,6 +6,9 @@ return require('packer').startup(function(use)
     -- GIT
     --
     use {'lewis6991/gitsigns.nvim', branch='main',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
     config = function()
         require('core.gitsigns')
     end
@@ -100,7 +103,6 @@ return require('packer').startup(function(use)
     use { 'ms-jpq/chadtree', branch= 'chad', run = 'python3 -m chadtree deps'}
     use { 'derekwyatt/vim-fswitch'}
     use { 'vimwiki/vimwiki'}
-    use { 'tools-life/taskwiki'}
     use { 'junegunn/vim-easy-align'}
     use { 'SirVer/ultisnips',
         config = function()
@@ -113,18 +115,18 @@ return require('packer').startup(function(use)
 
     -- Lanaguage-specific
     -- Can't load this lazily
-    use {'JuliaEditorSupport/julia-vim'}
+    -- use {'JuliaEditorSupport/julia-vim'}
 
     -- Scheme -
-    use {'Olical/aniseed'}
-    use { 'Olical/conjure',
-        ft={"scheme"}
-    }
+    --
+    -- Nand 2 tetrix
     use {'sevko/vim-nand2tetris-syntax'}
 
     -- Plantuml
     use {'aklt/plantuml-syntax', ft="plantuml"}
     use {'weirongxu/plantuml-previewer.vim', ft="plantuml"}
+
+    -- Latex
 
     use {'lervag/vimtex',
     -- ft = {"tex"},

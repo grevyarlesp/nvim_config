@@ -86,7 +86,6 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-set conceallevel=2
 " Plugins with vim-plug
 lua require('plugins')
 
@@ -117,11 +116,6 @@ vim.g.tokyonight_style='night'
 vim.g.tokyonight_italic_functions = 1
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "chadtree" }
 
-vim.g.tex_flavor = 'latex'
-vim.g.vimtex_view_method = 'zathura'
-vim.g.vimtex_quickfix_mode=0
-vim.g.vimtex_complete_close_braces = 1
-vim.g.tex_conceal='abdmg'
 EOF
 
 colorscheme tokyonight
@@ -188,7 +182,7 @@ let g:mdip_imgname = 'image'
 " hi Comment ctermfg=lightgreen guifg=lightgreen
 hi LineNr guifg=lightgreen
 hi! link SignColumn LineNr
-hi clear Conceal
+" hi clear Conceal
 " }}} 
 
 " {{{
@@ -203,3 +197,9 @@ augroup END
 " {{{
 " let g:presence_log_level="debug"
 "
+"
+"
+set conceallevel=2
+let g:tex_flavor='latex'
+let g:tex_conceal='abdmg'
+let g:vimtex_quickfix_mode=0
