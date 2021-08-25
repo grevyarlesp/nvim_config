@@ -1,8 +1,6 @@
 augroup vimbettersml
   au!
-
   " ----- Keybindings -----
-
   " au FileType sml nnoremap <silent> <buffer> <leader>t :SMLTypeQuery<CR>
   " au FileType sml nnoremap <silent> <buffer> gd :SMLJumpToDef<CR>
 

@@ -1,4 +1,5 @@
 return require('packer').startup(function(use)
+
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
 
@@ -102,7 +103,6 @@ return require('packer').startup(function(use)
     use { 'tyru/open-browser.vim'}
     use { 'ms-jpq/chadtree', branch= 'chad', run = 'python3 -m chadtree deps'}
     use { 'derekwyatt/vim-fswitch'}
-    use { 'vimwiki/vimwiki'}
     use { 'junegunn/vim-easy-align'}
     use { 'SirVer/ultisnips',
         config = function()
@@ -140,7 +140,9 @@ return require('packer').startup(function(use)
     end
     }
     -- syntax for a bunch of languages
+    --
     use {'justinmk/vim-syntax-extra'} 
+    -- Python
 
     -- Markdown
     use { 'iamcco/markdown-preview.nvim', opt=true, ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'}

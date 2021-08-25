@@ -115,7 +115,6 @@ lua << EOF
 vim.g.tokyonight_style='night'
 vim.g.tokyonight_italic_functions = 1
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "chadtree" }
-
 EOF
 
 colorscheme tokyonight
@@ -124,7 +123,6 @@ set background=dark
 " basic configurations 
 
 " Plugin configs {{{
-source ~/.config/nvim/plugconfig/vimwiki-config.vim
 source ~/.config/nvim/plugconfig/vim-slime-config.vim
 luafile ~/.config/nvim/plugconfig/nvim-lspconfig.lua
 " }}}
@@ -197,6 +195,3 @@ augroup highlight_yank
 augroup END
 " {{{
 " let g:presence_log_level="debug"
-"
-"
-"
