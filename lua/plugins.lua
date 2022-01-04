@@ -33,13 +33,10 @@ return require('packer').startup(function(use)
     --
 
     use {'kyazdani42/nvim-web-devicons'}
-    use {'andweeb/presence.nvim', branch='main',
-        config = function()
-            require('core.presence')
-        end
-    }
 
     use {'folke/tokyonight.nvim', branch= 'main'}
+    -- use {'olimorris/onedarkpro.nvim', branch= 'main'}
+
     -- COR
     use { 'neovim/nvim-lspconfig' }
 
@@ -76,7 +73,7 @@ return require('packer').startup(function(use)
         end
     }
     -- status line
-    use { 'hoob3rt/lualine.nvim',
+    use { 'nvim-lualine/lualine.nvim',
         config = function()
             require('core.lualine')
         end,
@@ -89,19 +86,29 @@ return require('packer').startup(function(use)
         end,
         event = "BufWinEnter",
     }
-    -- commenting
-    use {'terrortylor/nvim-comment',
-        config = function() require('nvim_comment').setup() end
-    }
 
+
+    -- Comment --
+    use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+    }
     --- EXTRA ---
     use { 'jpalardy/vim-slime', branch='main'}
     -- REPL integraion
 
     use { 'dhruvasagar/vim-table-mode'}
-    use { 'vim-scripts/fcitx.vim'}
+    use {'lilydjwg/fcitx.vim'}
     use { 'tyru/open-browser.vim'}
-    use { 'ms-jpq/chadtree', branch= 'chad', run = 'python3 -m chadtree deps'}
+    use { 'ms-jpq/chadtree', branch= 'chad', run = 'python3 -m chadtree deps',
+        config = function()
+            require('core.chadtree').setup()
+            vim.api.nvim_set_keymap('n', "<leader>v", "<cmd>lua require('core.chadtree').toggle()<CR>", {noremap = true, silent = true})
+            vim.api.nvim_set_keymap('n', "q", "", {noremap = true, silent = true})
+        end
+    }
     use { 'derekwyatt/vim-fswitch'}
     use { 'junegunn/vim-easy-align'}
     use { 'SirVer/ultisnips',
@@ -137,16 +144,26 @@ return require('packer').startup(function(use)
         vim.g.vimtex_quickfix_mode=0
         vim.g.vimtex_complete_close_braces = 1
         vim.g.tex_conceal='abdmg'
+        vim.g.vimtex_compiler_latexmk = {
+             executable = 'latexmk',
+             options = {
+                -- '-xelatex',
+               '-shell-escape',
+               '-file-line-error',
+               '-synctex=1',
+               '-interaction=nonstopmode'
+           } }
     end
     }
     -- syntax for a bunch of languages
     --
-    use {'justinmk/vim-syntax-extra'} 
+    use {'justinmk/vim-syntax-extra'}
     -- Python
+    -- Jupyter
+    use {'untitled-ai/jupyter_ascending.vim'}
 
     -- Markdown
     use { 'iamcco/markdown-preview.nvim', opt=true, ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-
     use { 'ferrine/md-img-paste.vim', ft = {'markdown'} }
-    
+    --
 end)

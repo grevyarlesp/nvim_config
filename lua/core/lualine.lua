@@ -1,7 +1,6 @@
-
 require('lualine').setup{
     options = {
-        theme = 'tokyonight',
+        -- theme = 'onedark',
         -- section_separators = {'', ''},
         section_separators = {'' , ''},
         -- section_separators = {'', ''},
@@ -14,7 +13,7 @@ require('lualine').setup{
         lualine_a = { {'mode', upper = false} },
         lualine_b = { {'FugitiveHead', icon = ''} },
         lualine_c = { {'filename', file_status = true}},
-        lualine_x = { {'diagnostics', sources={'nvim_lsp'}}, 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { {'diagnostics', sources={'nvim_diagnostic'}}, 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location'  },
     },
@@ -26,5 +25,7 @@ require('lualine').setup{
         lualine_y = {  },
         lualine_z = {   }
     },
+    extensions = {
+        'chadtree', 'fugitive'
+    },
 }
-

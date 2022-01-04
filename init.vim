@@ -6,6 +6,9 @@
 "========================================
 
 
+let g:python3_host_prog  = '/usr/bin/python3'
+
+
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -16,7 +19,7 @@ set nocompatible
 set ai
 set scrolloff=999
 set sidescrolloff=999
-set mouse=a
+" set mouse=a
 
 filetype plugin on
 filetype plugin indent on
@@ -72,7 +75,6 @@ set t_Co=256
 
 " Blocky cursor
 set guicursor=
-let g:python3_host_prog  = '/usr/bin/python3'
 
 " " Copy to clipboard
 vnoremap  <leader>y  "+y
@@ -86,8 +88,8 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-" Plugins with vim-plug
 lua require('plugins')
+lua require('keymappings').load_defaults()
 
 " Auto Insert Header
 function! s:insert_gates()
@@ -113,7 +115,7 @@ imap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 lua << EOF
 vim.g.tokyonight_style='night'
-vim.g.tokyonight_italic_functions = 1
+vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "chadtree" }
 EOF
 
@@ -159,14 +161,8 @@ let g:table_mode_delete_column_map = ',tdc'
 " {{{ Plant UML
 au! BufNewFile,BufReadPost *.{uml,puml} set filetype=plantuml
 " }}}"
-
-" {{{ Chad tree
-"
-nnoremap <leader>v <cmd>CHADopen<cr>
-" }}}
 "
 " {{{ md-img-paste
-"
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 " there are some defaults for image directory and image name, you can change them
 let g:mdip_imgdir = 'img'
@@ -178,10 +174,10 @@ let g:mdip_imgname = 'image'
 " autocmd BufNewFile,BufRead *.hs source ~/.config/nvim/hs.vim
 
 " hi Comment ctermfg=lightgreen guifg=lightgreen
-hi LineNr guifg=lightgreen
+" hi LineNr guifg=lightgreen
 hi! link SignColumn LineNr
 hi clear Conceal
-hi Conceal guifg=lightgreen
+" hi Conceal guifg=lightgreen
 " }}} 
 
 " {{{
@@ -195,3 +191,10 @@ augroup highlight_yank
 augroup END
 " {{{
 " let g:presence_log_level="debug"
+"
+" {{{ Jupyter Ascending
+nmap <space><space>x <Plug>JupyterExecute
+
+nmap <space><space>X <Plug>JupyterExecuteAll
+" }}}
+
