@@ -26,6 +26,6 @@ require('lualine').setup{
         lualine_z = {   }
     },
     extensions = {
-        'chadtree', 'fugitive'
+        'nvim-tree', 'fugitive'
     },
 }
