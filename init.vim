@@ -8,7 +8,6 @@
 
 let g:python3_host_prog  = '/usr/bin/python3'
 
-
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -65,7 +64,6 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
 
-
 set ttimeoutlen=50
 set nohlsearch
 
@@ -74,7 +72,7 @@ set termguicolors
 set t_Co=256
 
 " Blocky cursor
-set guicursor=
+" set guicursor=
 
 " " Copy to clipboard
 vnoremap  <leader>y  "+y
@@ -189,6 +187,7 @@ augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
+
 " {{{
 " let g:presence_log_level="debug"
 "

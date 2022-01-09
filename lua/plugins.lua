@@ -3,7 +3,6 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
 
-    use {'ActivityWatch/aw-watcher-vim'}
     -- GIT
     --
     use {'lewis6991/gitsigns.nvim', branch='main',
@@ -30,8 +29,6 @@ return require('packer').startup(function(use)
     use { 'preservim/tagbar' }
     use {'ludovicchabant/vim-gutentags' }
 
-    --
-
     use {'kyazdani42/nvim-web-devicons'}
 
     use {'folke/tokyonight.nvim', branch= 'main'}
@@ -46,11 +43,18 @@ return require('packer').startup(function(use)
         end
     }
 
-    use {'hrsh7th/nvim-compe',
+    use {'hrsh7th/cmp-nvim-lsp'}
+    use {'hrsh7th/cmp-buffer'  }
+    use {'hrsh7th/cmp-path'    }
+    use {'hrsh7th/cmp-cmdline' }
+
+    use {'hrsh7th/nvim-cmp',
         config = function()
-            require('core.nvim-compe')
+            require('core.nvim-cmp')
         end
     }
+
+    use {'quangnguyen30192/cmp-nvim-ultisnips'}
 
     use {'nvim-treesitter/nvim-treesitter',run = ':TSUpdate',
         config = function() 
