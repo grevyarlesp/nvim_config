@@ -67,12 +67,7 @@ endsnippet
 snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
-snippet box "Box"
-`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
-│ $1 │
-`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
-$0
-endsnippet
+
 snippet lim "limit" w
 \lim_{${1:n} \to ${2:\infty}} 
 endsnippet
@@ -82,13 +77,27 @@ endsnippet
 snippet ooo "\infty" iA
 \infty
 endsnippet
+
 snippet insert_img "image" bA
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=\linewidth]{Image to insert}
-\caption{Something}
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=2.5inch]{$1}
+\caption{$0}
+\end{center}
+\clearpage
 \end{figure}
 endsnippet
+
+snippet wrap_img "image" bA
+\begin{wrapfigure}
+\begin{center}
+\includegraphics[0.4\linewidth]{$1}
+\caption{$0}
+\end{center}
+\clearpage
+\end{figure}
+endsnippet
+
 
 snippet sol "begin{} / end{}" bA
 \begin{solution}

@@ -17,6 +17,8 @@ vim.api.nvim_set_keymap("n", "<A-9>", ":BufferLast<CR>", {noremap = true, silent
 -- vim.opt.bufferline.animation = false
 --
 -- Set barbar's options
+--
+
 vim.g.bufferline = {
   -- Enable/disable animations
   animation = false,
@@ -72,3 +74,36 @@ vim.g.bufferline = {
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = nil,
 }
+
+local ok, nvim_tree = pcall(require, 'nvim-tree')
+
+
+if (not ok) then
+    return
+end
+
+-- NvimTree
+function Tree_find()
+    require'bufferline.state'.set_offset(vim.g.bufferline.maximum_length  + 1, 'FileTree')
+    nvim_tree.find_file(true)
+end
+function Tree_toggle()
+    if require'nvim-tree.view'.win_open() then
+        require'bufferline.state'.set_offset(0)
+    else
+        require'bufferline.state'.set_offset(vim.g.bufferline.maximum_length + 1, 'FileTree')
+    end
+    nvim_tree.toggle()
+end
+
+function Tree_close()
+    nvim_tree.close()
+    require'bufferline.state'.set_offset(0, 'FileTree')
+end
+
+vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>lua Tree_toggle()<CR>', {silent = true, noremap = true})
+
+-- vim.cmd([[
+--     au BufHidden NvimTree vim.schedule(lua Tree_close())")
+-- ]])
+

@@ -1,4 +1,5 @@
 return require('packer').startup(function(use)
+    use {'ActivityWatch/aw-watcher-vim'}
 
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
@@ -37,30 +38,37 @@ return require('packer').startup(function(use)
     -- COR
     use { 'neovim/nvim-lspconfig' }
 
-    use {'glepnir/lspsaga.nvim', branch='main',
-        config = function()
-            require('core.lspsaga')
-        end
-    }
-
     use {'hrsh7th/cmp-nvim-lsp'}
     use {'hrsh7th/cmp-buffer'  }
     use {'hrsh7th/cmp-path'    }
     use {'hrsh7th/cmp-cmdline' }
 
     use {'hrsh7th/nvim-cmp',
+        requires = {
+
+            "quangnguyen30192/cmp-nvim-ultisnips",
+            config = function()
+              -- optional call to setup (see customization section)
+                  require("cmp_nvim_ultisnips").setup{}
+            end,
+        },
         config = function()
             require('core.nvim-cmp')
         end
     }
 
-    use {'quangnguyen30192/cmp-nvim-ultisnips'}
 
     use {'nvim-treesitter/nvim-treesitter',run = ':TSUpdate',
-        config = function() 
+        config = function()
             require('core.nvim-treesitter')
         end
     }
+    -- use {'nvim-treesitter/nvim-treesitter',
+    --     commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
+    --     config = function() 
+    --         require('core.nvim-treesitter')
+    --     end
+    -- }
     use {'nvim-treesitter/playground'}
     
     use { 'nvim-lua/popup.nvim' }
@@ -82,6 +90,11 @@ return require('packer').startup(function(use)
             require('core.lualine')
         end,
         event = "BufWinEnter"
+    }
+    use { 'kyazdani42/nvim-tree.lua',
+        config = function()
+            require('core.nvim-tree')
+        end
     }
 
     use {'romgrk/barbar.nvim',
@@ -106,13 +119,8 @@ return require('packer').startup(function(use)
     use { 'dhruvasagar/vim-table-mode'}
     use {'lilydjwg/fcitx.vim'}
     use { 'tyru/open-browser.vim'}
-    use { 'ms-jpq/chadtree', branch= 'chad', run = 'python3 -m chadtree deps',
-        config = function()
-            require('core.chadtree').setup()
-            vim.api.nvim_set_keymap('n', "<leader>v", "<cmd>lua require('core.chadtree').toggle()<CR>", {noremap = true, silent = true})
-            vim.api.nvim_set_keymap('n', "q", "", {noremap = true, silent = true})
-        end
-    }
+
+
     use { 'derekwyatt/vim-fswitch'}
     use { 'junegunn/vim-easy-align'}
     use { 'SirVer/ultisnips',
