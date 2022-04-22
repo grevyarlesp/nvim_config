@@ -1,11 +1,10 @@
 local nvim_lsp = require('lspconfig')
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   -- Mappings.
     local opts = { noremap=true, silent=true }
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -72,55 +71,31 @@ local on_attach = function(client, bufnr)
         }
     })
 end
-
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
-end
-
--- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
-local sumneko_root_path = "/usr/share/lua-language-server"
-local sumneko_binary = "/usr/bin/lua-language-server"
-
-require'lspconfig'.sumneko_lua.setup {
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
+--
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
 local servers = { "clangd" , "pyright", "texlab"}
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
+  end
 end
 
+lsp_installer.on_server_ready(function(server)
+  -- Specify the default options which we'll use to setup all servers
+  local opts = {
+    on_attach = on_attach,
+  }
+  -- if enhance_server_opts[server.name] then
+  --   -- Enhance the default opts with the server-specific ones
+  --   enhance_server_opts[server.name](opts)
+  -- end
+  --
+	-- This setup() function is exactly the same as lspconfig's setup function.
+	server:setup(opts)
+end)
 
+require("lsp.nvim-cmp")

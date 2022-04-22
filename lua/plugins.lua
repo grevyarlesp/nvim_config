@@ -1,8 +1,43 @@
 return require('packer').startup(function(use)
-    use {'ActivityWatch/aw-watcher-vim'}
 
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
+
+    use {'ActivityWatch/aw-watcher-vim'}
+    use { 'Mofiqul/vscode.nvim',
+        config = function()
+            vim.o.background = "dark" -- to load onelight
+            vim.g.vscode_style = "dark"
+            vim.cmd([[colorscheme vscode]])
+        end
+    }
+
+    use {'andweeb/presence.nvim',
+        config = function()
+            require("presence"):setup({
+                -- General options
+                auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+                neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
+                main_image          = "neovim",                   -- Main image display (either "neovim" or "file")
+                client_id           = "793271441293967371",       -- Use your own Discord application client id (not recommended)
+                log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
+                debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
+                enable_line_number  = false,                      -- Displays the current line number instead of the current project
+                blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
+                buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+                file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+
+                -- Rich Presence text options
+                editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
+                file_explorer_text  = "Browsing %s",              -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
+                git_commit_text     = "Committing changes",       -- Format string rendered when committing changes in git (either string or function(filename: string): string)
+                plugin_manager_text = "Managing plugins",         -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
+                reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
+                workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
+                line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+            })
+        end
+    }
 
     -- GIT
     --
@@ -32,29 +67,27 @@ return require('packer').startup(function(use)
 
     use {'kyazdani42/nvim-web-devicons'}
 
-    use {'folke/tokyonight.nvim', branch= 'main'}
+    -- use {'folke/tokyonight.nvim', branch= 'main'}
     -- use {'olimorris/onedarkpro.nvim', branch= 'main'}
 
     -- COR
-    use { 'neovim/nvim-lspconfig' }
+    --
+    use {'williamboman/nvim-lsp-installer'}
+    use { 'neovim/nvim-lspconfig' ,config = function() 
+        require('lsp.nvim-lspconfig')
+    end}
 
     use {'hrsh7th/cmp-nvim-lsp'}
-    use {'hrsh7th/cmp-buffer'  }
-    use {'hrsh7th/cmp-path'    }
-    use {'hrsh7th/cmp-cmdline' }
-
-    use {'hrsh7th/nvim-cmp',
-        requires = {
-
-            "quangnguyen30192/cmp-nvim-ultisnips",
+    -- use {'hrsh7th/cmp-buffer'  }
+    -- use {'hrsh7th/cmp-path'    }
+    -- use {'hrsh7th/cmp-cmdline' }
+    use {"quangnguyen30192/cmp-nvim-ultisnips",
             config = function()
               -- optional call to setup (see customization section)
                   require("cmp_nvim_ultisnips").setup{}
-            end,
-        },
-        config = function()
-            require('core.nvim-cmp')
-        end
+            end
+    }
+    use {'hrsh7th/nvim-cmp',
     }
 
 
@@ -63,12 +96,7 @@ return require('packer').startup(function(use)
             require('core.nvim-treesitter')
         end
     }
-    -- use {'nvim-treesitter/nvim-treesitter',
-    --     commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
-    --     config = function() 
-    --         require('core.nvim-treesitter')
-    --     end
-    -- }
+
     use {'nvim-treesitter/playground'}
     
     use { 'nvim-lua/popup.nvim' }
@@ -104,10 +132,11 @@ return require('packer').startup(function(use)
         event = "BufWinEnter",
     }
 
-
     -- Comment --
     use {
     'numToStr/Comment.nvim',
+
+    tag = 'v0.6',
     config = function()
         require('Comment').setup()
     end
@@ -144,7 +173,6 @@ return require('packer').startup(function(use)
     -- Plantuml
     use {'aklt/plantuml-syntax', ft="plantuml"}
     use {'weirongxu/plantuml-previewer.vim', ft="plantuml"}
-
     -- Latex
 
     use {'lervag/vimtex',
@@ -153,9 +181,12 @@ return require('packer').startup(function(use)
         vim.opt.conceallevel=2
         vim.g.tex_flavor = 'latex'
         vim.g.vimtex_view_method = 'zathura'
+        -- vim.g.vimtex_view_general_viewer = 'zathura'
+
         vim.g.vimtex_quickfix_mode=0
         vim.g.vimtex_complete_close_braces = 1
         vim.g.tex_conceal='abdmg'
+
         vim.g.vimtex_compiler_latexmk = {
              executable = 'latexmk',
              options = {
@@ -168,11 +199,7 @@ return require('packer').startup(function(use)
     end
     }
     -- syntax for a bunch of languages
-    --
     use {'justinmk/vim-syntax-extra'}
-    -- Python
-    -- Jupyter
-    use {'untitled-ai/jupyter_ascending.vim'}
 
     -- Markdown
     use { 'iamcco/markdown-preview.nvim', opt=true, ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'}

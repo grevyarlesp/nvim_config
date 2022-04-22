@@ -117,14 +117,11 @@ vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "chadtree" }
 EOF
 
-colorscheme tokyonight
 set background=dark
 
 " basic configurations 
 
 " Plugin configs {{{
-source ~/.config/nvim/plugconfig/vim-slime-config.vim
-luafile ~/.config/nvim/plugconfig/nvim-lspconfig.lua
 " }}}
 
 " Plugins config - too small to deserve their own files {{{ 
@@ -173,8 +170,10 @@ let g:mdip_imgname = 'image'
 
 " hi Comment ctermfg=lightgreen guifg=lightgreen
 " hi LineNr guifg=lightgreen
-hi! link SignColumn LineNr
-hi clear Conceal
+" hi! link SignColumn LineNr
+" hi clear Conceal
+" hi Pmenu ctermbg=gray guibg=gray
+"
 " hi Conceal guifg=lightgreen
 " }}} 
 
@@ -187,13 +186,12 @@ augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
-
 " {{{
 " let g:presence_log_level="debug"
 "
 " {{{ Jupyter Ascending
 nmap <space><space>x <Plug>JupyterExecute
-
 nmap <space><space>X <Plug>JupyterExecuteAll
 " }}}
 
+set nofixendofline
