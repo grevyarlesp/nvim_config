@@ -74,7 +74,7 @@ end
 --
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { "clangd" , "pyright", "texlab"}
+local servers = { "clangd" , "pyright-langserver", "texlab"}
 
 for _, name in pairs(servers) do
   local server_is_found, server = lsp_installer.get_server(name)

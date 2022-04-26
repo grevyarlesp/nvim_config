@@ -5,7 +5,6 @@
 "|___|_| \_|___| |_(_)  \_/  |___|_|  |_|
 "========================================
 
-
 let g:python3_host_prog  = '/usr/bin/python3'
 
 set tabstop=4
@@ -138,20 +137,11 @@ nnoremap <silent> <leader>ol :FSSplitRight<cr>
 
 let b:fswitchlocs='./'
 
-" }}}
-
-" }}}
-"
-" {{{ nabla
-" nnoremap <F4> :lua require("nabla").place_inline()<CR>
-" }}}
-
 " {{{ table-mode
 let g:table_mode_map_prefix = ',t'
 let g:table_mode_delete_row_map = ',tdd'
 let g:table_mode_delete_column_map = ',tdc'
 " }}}
-
 
 " {{{ Plant UML
 au! BufNewFile,BufReadPost *.{uml,puml} set filetype=plantuml
@@ -164,9 +154,6 @@ let g:mdip_imgdir = 'img'
 let g:mdip_imgname = 'image'
 " }}}
 
-" autocmd BufNewFile,BufRead *.c source ~/.config/nvim/c.vim
-" autocmd BufNewFile,BufRead *.cpp source ~/.config/nvim/cpp.vim
-" autocmd BufNewFile,BufRead *.hs source ~/.config/nvim/hs.vim
 
 " hi Comment ctermfg=lightgreen guifg=lightgreen
 " hi LineNr guifg=lightgreen
@@ -186,12 +173,11 @@ augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
-" {{{
-" let g:presence_log_level="debug"
-"
+
+
 " {{{ Jupyter Ascending
 nmap <space><space>x <Plug>JupyterExecute
 nmap <space><space>X <Plug>JupyterExecuteAll
 " }}}
 
-set nofixendofline
+" set nofixendofline

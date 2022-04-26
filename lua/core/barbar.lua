@@ -82,26 +82,9 @@ if (not ok) then
     return
 end
 
--- NvimTree
-function Tree_find()
-    require'bufferline.state'.set_offset(vim.g.bufferline.maximum_length  + 1, 'FileTree')
-    nvim_tree.find_file(true)
-end
-function Tree_toggle()
-    if require'nvim-tree.view'.win_open() then
-        require'bufferline.state'.set_offset(0)
-    else
-        require'bufferline.state'.set_offset(vim.g.bufferline.maximum_length + 1, 'FileTree')
-    end
-    nvim_tree.toggle()
-end
 
-function Tree_close()
-    nvim_tree.close()
-    require'bufferline.state'.set_offset(0, 'FileTree')
-end
-
-vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>lua Tree_toggle()<CR>', {silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>lua require(\'core.tree\').toggle()<CR>', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '<C-n>', ':lua require(\'core.tree\').toggle()', {silent = true, noremap = true})
 
 -- vim.cmd([[
 --     au BufHidden NvimTree vim.schedule(lua Tree_close())")

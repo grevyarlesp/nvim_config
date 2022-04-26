@@ -10,11 +10,6 @@ endsnippet
 snippet ssum "Sum" wA
 \sum^{$2}_{$1} $0
 endsnippet
-snippet beg "begin{} / end{}" bA
-\begin{$1}
-	$0
-\end{$1}
-endsnippet
 snippet const "CONST" wA 
 \const
 endsnippet
@@ -58,11 +53,6 @@ snippet xx "times" wA
 \times
 endsnippet
 
-snippet dm "Math" wA
-\[
-$1
-\] $0
-endsnippet
 snippet '([A-Za-z])(\d)' "auto subscript" wrA
 `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
 endsnippet
@@ -181,6 +171,15 @@ endsnippet
 
 snippet fig "Figure environment" b
 \begin{figure}[${1:htpb}]
+	\centering
+	${2:\includegraphics[width=0.8\textwidth]{${3:./img/place.png}}}
+	\caption{${4:$3}}
+	\label{fig:${5:${3/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+snippet hfig "Non float fig" b
+\begin{figure}[${1:H}]
 	\centering
 	${2:\includegraphics[width=0.8\textwidth]{${3:./img/place.png}}}
 	\caption{${4:$3}}
@@ -581,6 +580,12 @@ snippet -> "to" iA
 \to 
 endsnippet
 
+priority 100
+context "math()"
+snippet <- "leftarrow" iA
+\leftarrow
+endsnippet
+
 priority 200
 context "math()"
 snippet <-> "leftrightarrow" iA
@@ -755,4 +760,19 @@ endsnippet
 snippet DD "D" iA
 \mathbb{D}
 endsnippet
+
 # vim:ft=snippets
+
+
+Norm
+context "math()"
+snippet || "Norm" iA
+\|
+endsnippet
+
+
+
+
+
+
+

@@ -135,8 +135,6 @@ return require('packer').startup(function(use)
     -- Comment --
     use {
     'numToStr/Comment.nvim',
-
-    tag = 'v0.6',
     config = function()
         require('Comment').setup()
     end
@@ -174,7 +172,6 @@ return require('packer').startup(function(use)
     use {'aklt/plantuml-syntax', ft="plantuml"}
     use {'weirongxu/plantuml-previewer.vim', ft="plantuml"}
     -- Latex
-
     use {'lervag/vimtex',
     -- ft = {"tex"},
     config = function()
