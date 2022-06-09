@@ -7,6 +7,10 @@
 
 let g:python3_host_prog  = '/usr/bin/python3'
 
+" if has('nvim') && !empty($CONDA_PREFIX)
+"   let g:python3_host_prog = $CONDA_PREFIX . '/bin/python'
+" endif
+
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -109,12 +113,6 @@ imap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 imap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 imap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 imap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-
-lua << EOF
-vim.g.tokyonight_style='night'
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "chadtree" }
-EOF
 
 set background=dark
 

@@ -2,8 +2,8 @@ return require('packer').startup(function(use)
 
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
-
     use {'ActivityWatch/aw-watcher-vim'}
+
     use { 'Mofiqul/vscode.nvim',
         config = function()
             vim.o.background = "dark" -- to load onelight
@@ -40,8 +40,9 @@ return require('packer').startup(function(use)
     }
 
     -- GIT
-    --
+    -- Long gay
     use {'lewis6991/gitsigns.nvim', branch='main',
+
       requires = {
         'nvim-lua/plenary.nvim'
       },
@@ -87,8 +88,14 @@ return require('packer').startup(function(use)
                   require("cmp_nvim_ultisnips").setup{}
             end
     }
-    use {'hrsh7th/nvim-cmp',
+    use {'hrsh7th/nvim-cmp'}
+
+    use {'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+            require("lsp.null-ls-config")
+        end
     }
+    
 
 
     use {'nvim-treesitter/nvim-treesitter',run = ':TSUpdate',
@@ -197,9 +204,8 @@ return require('packer').startup(function(use)
     }
     -- syntax for a bunch of languages
     use {'justinmk/vim-syntax-extra'}
-
     -- Markdown
-    use { 'iamcco/markdown-preview.nvim', opt=true, ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
     use { 'ferrine/md-img-paste.vim', ft = {'markdown'} }
     --
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 end)
