@@ -40,7 +40,6 @@ return require('packer').startup(function(use)
     }
 
     -- GIT
-    -- Long gay
     use {'lewis6991/gitsigns.nvim', branch='main',
 
       requires = {

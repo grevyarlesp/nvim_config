@@ -32,27 +32,27 @@ require("telescope").setup {
 
 }
 
-vim.cmd(
-[[
-" Find files using Telescope command-line sugar.
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fr <cmd>Telescope registers<cr>
+local function map(mode, l, r, opts)
+  opts = opts or {}
+  opts.buffer = bufnr
+  vim.keymap.set(mode, l, r, opts)
+end
 
-nnoremap <leader>gc <cmd>lua require'telescope.builtin'.git_bcommits()<cr>
-nnoremap <leader>gs <cmd>lua require'telescope.builtin'.git_status()<cr>
+local tlb = require'telescope.builtin'
 
-" nnoremap <leader>fz <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<cr>
-" nnoremap <leader>ft <cmd>lua require'telescope.builtin'.treesitter()<cr>
+map('n', '<leader>ffr', tlb.find_files, { noremap = true, silent = true })
+map('n', '<leader>td', tlb.grep_string, { noremap = true, silent = true })
+map('n', '<leader>fg', tlb.live_grep, { noremap = true, silent = true })
+map('n', '<leader>tb', tlb.buffers, { noremap = true, silent = true })
+map('n', '<leader>lr', tlb.lsp_references, { noremap = true, silent = true })
+map('n', '<leader>ts', tlb.treesitter, { noremap = true, silent = true })
+map('n', '<leader>fz', tlb.current_buffer_fuzzy_find, { noremap = true, silent = true })
+map('n', '<leader>tg', tlb.tags, { noremap = true, silent = true })
+map('n', '<leader>tk', tlb.keymaps, { noremap = true, silent = true })
+map('n', '<leader>gs', tlb.git_status, { noremap = true, silent = true })
+map('n', '<leader>gb', tlb.git_branches, { noremap = true, silent = true })
+map('n', '<leader>gc', tlb.git_commits, { noremap = true, silent = true })
+map('n', '<leader>fh', tlb.help_tags, { noremap = true, silent = true })
+map('n', '<leader>tr', tlb.registers, { noremap = true, silent = true })
 
-]])
-
-vim.api.nvim_set_keymap('n', '<leader>ff', [[<Cmd>lua require'telescope.builtin'.find_files()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fd', [[<Cmd>lua require'telescope.builtin'.grep_string()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', [[<Cmd>lua require'telescope.builtin'.live_grep()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fb', [[<Cmd>lua require'telescope.builtin'.buffers()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fr', [[<Cmd>lua require'telescope.builtin'.lsp_references()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ts', [[<Cmd>lua require'telescope.builtin'.treesitter()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fz', [[<Cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tg', [[<Cmd>lua require'telescope.builtin'.tags()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>tk', [[<Cmd>lua require'telescope.builtin'.keymaps()<CR>]], { noremap = true, silent = true })
 

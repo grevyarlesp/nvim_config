@@ -6,6 +6,9 @@
 "========================================
 
 let g:python3_host_prog  = '/usr/bin/python3'
+if exists('g:vscode')
+    finish
+endif
 
 " if has('nvim') && !empty($CONDA_PREFIX)
 "   let g:python3_host_prog = $CONDA_PREFIX . '/bin/python'
