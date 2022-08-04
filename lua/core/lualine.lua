@@ -1,9 +1,9 @@
 require('lualine').setup{
     options = {
-        -- theme = 'onedark',
+        -- theme = 'vscode',
         -- section_separators = {'', ''},
         section_separators = {'' , ''},
-        -- section_separators = {'', ''},
+        section_separators = {'', ''},
         component_separators = {'', ''},
         disabled_filetypes = {},
         icons_enabled = true,

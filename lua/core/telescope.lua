@@ -40,10 +40,10 @@ end
 
 local tlb = require'telescope.builtin'
 
-map('n', '<leader>ffr', tlb.find_files, { noremap = true, silent = true })
+map('n', '<leader>ff', tlb.find_files, { noremap = true, silent = true })
 map('n', '<leader>td', tlb.grep_string, { noremap = true, silent = true })
 map('n', '<leader>fg', tlb.live_grep, { noremap = true, silent = true })
-map('n', '<leader>tb', tlb.buffers, { noremap = true, silent = true })
+map('n', '<leader>fb', tlb.buffers, { noremap = true, silent = true })
 map('n', '<leader>lr', tlb.lsp_references, { noremap = true, silent = true })
 map('n', '<leader>ts', tlb.treesitter, { noremap = true, silent = true })
 map('n', '<leader>fz', tlb.current_buffer_fuzzy_find, { noremap = true, silent = true })

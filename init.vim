@@ -182,3 +182,5 @@ nmap <space><space>X <Plug>JupyterExecuteAll
 " }}}
 
 " set nofixendofline
+"
+

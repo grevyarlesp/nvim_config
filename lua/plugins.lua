@@ -201,8 +201,13 @@ return require('packer').startup(function(use)
            } }
     end
     }
+
+    -- Database
+    use {'tpope/vim-dadbod'}
     -- syntax for a bunch of languages
     use {'justinmk/vim-syntax-extra'}
+
+    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
     -- Markdown
     use { 'ferrine/md-img-paste.vim', ft = {'markdown'} }
     --
