@@ -207,7 +207,11 @@ return require('packer').startup(function(use)
     -- syntax for a bunch of languages
     use {'justinmk/vim-syntax-extra'}
 
-    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+        require('lsp.metals')
+    end})
+
     -- Markdown
     use { 'ferrine/md-img-paste.vim', ft = {'markdown'} }
     --
