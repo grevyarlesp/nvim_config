@@ -154,6 +154,12 @@ autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownCli
 let g:mdip_imgdir = 'img'
 let g:mdip_imgname = 'image'
 " }}}
+"
+"
+" {{{
+au BufEnter *.worksheet.sc  set filetype=scala
+
+" }}}
 
 
 " hi Comment ctermfg=lightgreen guifg=lightgreen
@@ -183,4 +189,4 @@ nmap <space><space>X <Plug>JupyterExecuteAll
 
 " set nofixendofline
 "
-
+" autocmd BufEnter *.cu lua vim.diagnostic.disable()

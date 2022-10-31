@@ -13,14 +13,14 @@ end
 
 local tree ={}
 tree.open = function ()
-   require'bufferline.state'.set_offset(31, 'FileTree')
+   require'bufferline.api'.set_offset(31, 'FileTree')
    require'nvim-tree'.find_file(true)
 
    nvim_tree.open()
 end
 
 tree.close = function ()
-   require'bufferline.state'.set_offset(0)
+   require'bufferline.api'.set_offset(0)
    view.close()
 end
 

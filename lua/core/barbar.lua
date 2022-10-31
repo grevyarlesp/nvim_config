@@ -77,14 +77,12 @@ vim.g.bufferline = {
 
 local ok, nvim_tree = pcall(require, 'nvim-tree')
 
-
 if (not ok) then
     return
 end
 
-
 vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>lua require(\'core.tree\').toggle()<CR>', {silent = true, noremap = true})
--- vim.api.nvim_set_keymap('i', '<C-n>', ':lua require(\'core.tree\').toggle()', {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '<C-n>', '<cmd>lua require(\'core.tree\').toggle()<CR>', {silent = true, noremap = true})
 
 -- vim.cmd([[
 --     au BufHidden NvimTree vim.schedule(lua Tree_close())")

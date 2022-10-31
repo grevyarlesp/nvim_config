@@ -15,7 +15,7 @@ metals_config.settings = {
 
 -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 
 local api = vim.api
@@ -33,7 +33,7 @@ end
 ----------------------------------
 -- global
 vim.opt_global.completeopt = { "menuone", "noinsert", "noselect" }
-vim.opt_global.shortmess:remove("F"):append("c")
+-- vim.opt_global.shortmess:remove("F"):append("c")
 
 -- LSP mappings
 map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>")
@@ -56,6 +56,8 @@ map("n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diag
 map("n", "[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 map("n", "]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 
+map("n", "<leader>tm", [[<cmd>lua require("telescope").extensions.metals.commands()<CR>]])
+
 -- Example mappings for usage with nvim-dap. If you don't use that, you can
 -- skip these
 map("n", "<leader>dc", [[<cmd>lua require"dap".continue()<CR>]])
@@ -66,45 +68,11 @@ map("n", "<leader>dso", [[<cmd>lua require"dap".step_over()<CR>]])
 map("n", "<leader>dsi", [[<cmd>lua require"dap".step_into()<CR>]])
 map("n", "<leader>dl", [[<cmd>lua require"dap".run_last()<CR>]])
 
-map("n", "<leader>ts", [[<cmd>lua require("telescope").extensions.metals.commands()<CR>]])
 
 -- completion related settings
 -- This is similiar to what I use
-local cmp = require("cmp")
-cmp.setup({
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "vsnip" },
-  },
-  snippet = {
-    expand = function(args)
-      -- Comes from vsnip
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    -- None of this made sense to me when first looking into this since there
-    -- is no vim docs, but you can't have select = true here _unless_ you are
-    -- also using the snippet stuff. So keep in mind that if you remove
-    -- snippets you need to remove this select
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    -- I use tabs... some say you should stick to ins-completion but this is just here as an example
-    ["<Tab>"] = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end,
-    ["<S-Tab>"] = function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end,
-  }),
-})
+--
+require("lsp.nvim-cmp")
 
 -- Autocmd that will actually be in charging of starting the whole thing
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
