@@ -4,7 +4,9 @@ return require('packer').startup(function(use)
     use {'wbthomason/packer.nvim'}
     use {
         'glacambre/firenvim',
-        run = function() vim.fn['firenvim#install'](0) end 
+        run = function() 
+            vim.fn['firenvim#install'](0) 
+        end 
     }
 
     use {'ActivityWatch/aw-watcher-vim'}
