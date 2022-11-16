@@ -2,6 +2,11 @@ return require('packer').startup(function(use)
 
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
+    use {
+        'glacambre/firenvim',
+        run = function() vim.fn['firenvim#install'](0) end 
+    }
+
     use {'ActivityWatch/aw-watcher-vim'}
 
     use { 'Mofiqul/vscode.nvim',

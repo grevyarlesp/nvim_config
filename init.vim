@@ -190,3 +190,8 @@ nmap <space><space>X <Plug>JupyterExecuteAll
 " set nofixendofline
 "
 " autocmd BufEnter *.cu lua vim.diagnostic.disable()
+"
+"
+" Set filetype for firenvim
+au BufEnter github.com_*.txt set filetype=markdown
+au BufEnter cryptozombies.io_*.txt set filetype=solidity
