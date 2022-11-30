@@ -195,5 +195,23 @@ nmap <space><space>X <Plug>JupyterExecuteAll
 " Set filetype for firenvim
 au BufEnter github.com_*.txt set filetype=markdown
 au BufEnter cryptozombies.io_*.txt set filetype=solidity
+au BufEnter cryptozombies.io_*.txt set lines=25
 
 
+
+" TODO: rework and move this to appropriate file
+let g:firenvim_config = { 
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+        \ 'filename': '/tmp/{hostname}_{pathname%10}.{extension}',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'content': 'text',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'never',
+        \} ,
+    \ }
+\ }

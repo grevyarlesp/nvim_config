@@ -6,23 +6,6 @@ return require('packer').startup(function(use)
         'glacambre/firenvim',
         run = function() 
             vim.fn['firenvim#install'](0) 
-            vim.cmd([[
-                let g:firenvim_config = { 
-                    \ 'globalSettings': {
-                        \ 'alt': 'all',
-                    \  },
-                    \ 'localSettings': {
-                        \ '.*': {
-                            \ 'cmdline': 'neovim',
-                            \ 'content': 'text',
-                            \ 'priority': 0,
-                            \ 'selector': 'textarea',
-                            \ 'takeover': 'always',
-                        \ },
-                    \ }
-                \ }
-            ]])
-
         end 
     }
 
