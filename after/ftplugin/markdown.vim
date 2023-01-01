@@ -1,3 +1,5 @@
-nnoremap <F5> :! pandoc -s -o %<.pdf % --pdf-engine=xelatex<CR>
-nnoremap <F6> :! zathura %<.pdf & <CR>
 set wrap
+
+set tabstop=2
+set shiftwidth=2
+set noexpandtab

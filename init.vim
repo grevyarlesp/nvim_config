@@ -198,7 +198,6 @@ au BufEnter cryptozombies.io_*.txt set filetype=solidity
 au BufEnter cryptozombies.io_*.txt set lines=25
 
 
-
 " TODO: rework and move this to appropriate file
 let g:firenvim_config = { 
     \ 'globalSettings': {

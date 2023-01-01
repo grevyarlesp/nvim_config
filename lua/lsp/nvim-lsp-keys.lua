@@ -27,6 +27,7 @@ function M.setup(client, bufnr)
 
 
       -- Set some keybinds conditional on server capabilities
+    
     if client.server_capabilities.document_formatting then
       buf_set_keymap("n", "<space>fl", "<cmd>lua vim.lsp.buf.format {async = true}<CR>", opts)
     end

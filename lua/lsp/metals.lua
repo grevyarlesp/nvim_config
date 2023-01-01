@@ -73,6 +73,7 @@ map("n", "<leader>dl", [[<cmd>lua require"dap".run_last()<CR>]])
 -- This is similiar to what I use
 --
 require("lsp.nvim-cmp")
+require("lsp.nvim-lsp-keys")
 
 -- Autocmd that will actually be in charging of starting the whole thing
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
