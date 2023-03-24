@@ -2,6 +2,7 @@ return require('packer').startup(function(use)
 
   -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
+    use {'wakatime/vim-wakatime'}
     use {
         'glacambre/firenvim',
         run = function() 
@@ -9,12 +10,11 @@ return require('packer').startup(function(use)
         end 
     }
 
-    use {'ActivityWatch/aw-watcher-vim'}
 
     use { 'Mofiqul/vscode.nvim',
         config = function()
             vim.o.background = "dark" -- to load onelight
-            vim.g.vscode_style = "dark"
+            -- vim.g.vscode_style = "dark"
             vim.cmd([[colorscheme vscode]])
         end
     }

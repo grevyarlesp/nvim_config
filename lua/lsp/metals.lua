@@ -68,7 +68,6 @@ map("n", "<leader>dso", [[<cmd>lua require"dap".step_over()<CR>]])
 map("n", "<leader>dsi", [[<cmd>lua require"dap".step_into()<CR>]])
 map("n", "<leader>dl", [[<cmd>lua require"dap".run_last()<CR>]])
 
-
 -- completion related settings
 -- This is similiar to what I use
 --

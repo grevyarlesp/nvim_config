@@ -195,8 +195,8 @@ nmap <space><space>X <Plug>JupyterExecuteAll
 " Set filetype for firenvim
 au BufEnter github.com_*.txt set filetype=markdown
 au BufEnter cryptozombies.io_*.txt set filetype=solidity
+au BufEnter colab.research.google.com_*.txt set filetype=python
 au BufEnter cryptozombies.io_*.txt set lines=25
-
 
 " TODO: rework and move this to appropriate file
 let g:firenvim_config = { 
@@ -214,3 +214,5 @@ let g:firenvim_config = {
         \} ,
     \ }
 \ }
+
+
