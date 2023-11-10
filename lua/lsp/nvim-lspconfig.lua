@@ -1,3 +1,32 @@
+local mason = require("mason")
+mason.setup(
+{
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+}
+)
+local ok, mason_lsp = pcall(require, "mason-lspconfig")
+
+
+local servers = { "clangd" , "pyright", "texlab", "gopls", "rust_analyzer", "lua_ls"}
+
+mason_lsp.setup({
+    ensure_installed = servers,
+    automatic_installation = true,
+})
+
+mason_lsp.setup_handlers {
+    function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {}
+    end,
+}
+
+
 local nvim_lsp = require('lspconfig')
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 
@@ -47,30 +76,5 @@ local on_attach = function(client, bufnr)
         }
     })
 end
---
--- Use a loop to conveniently both setup defined servers
--- and map buffer local keybindings when the language server attaches
-local servers = { "clangd" , "pyright", "texlab", "gopls", "rust_analyzer"}
 
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    print("Installing " .. name)
-    server:install()
-  end
-end
-
-lsp_installer.on_server_ready(function(server)
-  -- Specify the default options which we'll use to setup all servers
-  local opts = {
-    on_attach = on_attach,
-  }
-  -- if enhance_server_opts[server.name] then
-  --   -- Enhance the default opts with the server-specific ones
-  --   enhance_server_opts[server.name](opts)
-  -- end
-  --
-	-- This setup() function is exactly the same as lspconfig's setup function.
-	server:setup(opts)
-end)
 

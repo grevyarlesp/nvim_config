@@ -80,7 +80,9 @@ return require('packer').startup(function(use)
 
     -- COR
     --
-    use {'williamboman/nvim-lsp-installer'}
+    -- use {'williamboman/nvim-lsp-installer'}
+    use {'williamboman/mason.nvim'}
+    use {'williamboman/mason-lspconfig.nvim'}
     use { 'neovim/nvim-lspconfig' ,config = function() 
         require('lsp.nvim-lspconfig')
     end}
