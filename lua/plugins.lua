@@ -221,7 +221,6 @@ return require('packer').startup(function(use)
     config = function()
         require('lsp.metals')
     end})
-
     -- Markdown
     use { 'ferrine/md-img-paste.vim', ft = {'markdown'} }
     --

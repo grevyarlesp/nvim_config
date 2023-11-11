@@ -12,7 +12,6 @@ mason.setup(
 )
 local ok, mason_lsp = pcall(require, "mason-lspconfig")
 
-
 local servers = { "clangd" , "pyright", "texlab", "gopls", "rust_analyzer", "lua_ls"}
 
 mason_lsp.setup({
@@ -20,15 +19,14 @@ mason_lsp.setup({
     automatic_installation = true,
 })
 
-mason_lsp.setup_handlers {
-    function (server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {}
-    end,
-}
+-- mason_lsp.setup_handlers {
+--     function (server_name) -- default handler (optional)
+--         require("lspconfig")[server_name].setup {}
+--     end,
+-- }
 
 
 local nvim_lsp = require('lspconfig')
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -77,4 +75,7 @@ local on_attach = function(client, bufnr)
     })
 end
 
+for i, server in ipairs(servers) do
+    nvim_lsp[server].setup {}
+end
 
