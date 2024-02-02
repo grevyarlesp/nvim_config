@@ -25,7 +25,7 @@ local defaults = {
   ---@usage change or add keymappings for insert mode
   insert_mode = {
 
-},
+    },
     normal_mode = {
     -- Better window movement
     ["<C-h>"] = "<C-w>h",

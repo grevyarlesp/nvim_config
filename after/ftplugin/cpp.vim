@@ -11,6 +11,6 @@ function! s:CloseBracket()
 endfunction
 inoremap <expr> {<Enter> <SID>CloseBracket()
 
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 
