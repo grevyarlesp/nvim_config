@@ -15,7 +15,15 @@ return require('packer').startup(function(use)
         config = function()
             vim.o.background = "dark" -- to load onelight
             -- vim.g.vscode_style = "dark"
+            require('vscode').setup(
+            {
+                color_overrides = {
+                    vscBack = '#000000',
+                }
+            }
+            )
             vim.cmd([[colorscheme vscode]])
+
         end
     }
 
@@ -79,11 +87,17 @@ return require('packer').startup(function(use)
     -- use {'olimorris/onedarkpro.nvim', branch= 'main'}
 
     -- COR
-    --
+    use { 'ray-x/go.nvim', config = function()
+            require('lang.goconfig')
+        end
+    }
+
+    use 'ray-x/guihua.lua' -- recommended if need floating window support
+
     -- use {'williamboman/nvim-lsp-installer'}
     use {'williamboman/mason.nvim'}
     use {'williamboman/mason-lspconfig.nvim'}
-    use { 'neovim/nvim-lspconfig' ,config = function() 
+    use { 'neovim/nvim-lspconfig' ,config = function()
         require('lsp.nvim-lspconfig')
     end}
 
