@@ -10,11 +10,10 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-
 null_ls.setup({
     debug = false,
     sources = {
-		-- formatting.black.with({ extra_args = { "--fast" } }),
+        -- formatting.black.with({ extra_args = { "--fast" } }),
         -- formatting.yapf.with({ extra_args = {"--style=\"{indent_width: 2}\""}}),
         formatting.yapf,
         diagnostics.pylint
@@ -36,6 +35,3 @@ null_ls.setup({
     end
 }
 )
-
-
-

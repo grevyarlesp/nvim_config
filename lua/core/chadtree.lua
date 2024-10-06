@@ -8,17 +8,17 @@ local chadtree_settings = {
 }
 
 function M.open()
-  if package.loaded["bufferline.api"] then
-    require("bufferline.state").set_offset(chadtree_settings.view.width + 1)
-  end
+    if package.loaded["bufferline.api"] then
+        require("bufferline.state").set_offset(chadtree_settings.view.width + 1)
+    end
 end
 
 function M.close()
-  local buf = tonumber(vim.fn.expand "<abuf>")
-  local ft = vim.api.nvim_buf_get_option(buf, "filetype")
-  if ft == "CHADTree" and package.loaded["bufferline.state"] then
-    require("bufferline.api").set_offset(0)
-  end
+    local buf = tonumber(vim.fn.expand "<abuf>")
+    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+    if ft == "CHADTree" and package.loaded["bufferline.state"] then
+        require("bufferline.api").set_offset(0)
+    end
 end
 
 function M.toggle()

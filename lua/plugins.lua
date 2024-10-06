@@ -1,13 +1,12 @@
 return require('packer').startup(function(use)
-
-  -- Packer can manage itself
-    use {'wbthomason/packer.nvim'}
-    use {'wakatime/vim-wakatime'}
+    -- Packer can manage itself
+    use { 'wbthomason/packer.nvim' }
+    use { 'wakatime/vim-wakatime' }
     use {
         'glacambre/firenvim',
-        run = function() 
-            vim.fn['firenvim#install'](0) 
-        end 
+        run = function()
+            vim.fn['firenvim#install'](0)
+        end
     }
 
 
@@ -16,19 +15,18 @@ return require('packer').startup(function(use)
             vim.o.background = "dark" -- to load onelight
             -- vim.g.vscode_style = "dark"
             require('vscode').setup(
-            {
-                color_overrides = {
-                    vscBack = '#000000',
+                {
+                    color_overrides = {
+                        vscBack = '#000000',
+                    }
                 }
-            }
             )
             vim.cmd([[colorscheme vscode]])
-
         end
     }
 
 
-    use {'andweeb/presence.nvim',
+    use { 'andweeb/presence.nvim',
         config = function()
             require("presence"):setup({
                 -- General options
@@ -44,91 +42,91 @@ return require('packer').startup(function(use)
                 file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
 
                 -- Rich Presence text options
-                editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
-                file_explorer_text  = "Browsing %s",              -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
-                git_commit_text     = "Committing changes",       -- Format string rendered when committing changes in git (either string or function(filename: string): string)
-                plugin_manager_text = "Managing plugins",         -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
-                reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
-                workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
-                line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+                editing_text        = "Editing %s",         -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
+                file_explorer_text  = "Browsing %s",        -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
+                git_commit_text     = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)
+                plugin_manager_text = "Managing plugins",   -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
+                reading_text        = "Reading %s",         -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
+                workspace_text      = "Working on %s",      -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
+                line_number_text    = "Line %s out of %s",  -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
             })
         end
     }
 
     -- GIT
-    use {'lewis6991/gitsigns.nvim', branch='main',
+    use { 'lewis6991/gitsigns.nvim', branch = 'main',
 
-      requires = {
-        'nvim-lua/plenary.nvim'
-      },
-    config = function()
-        require('core.gitsigns')
-    end
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function()
+            require('core.gitsigns')
+        end
     }
 
-    use {'tpope/vim-fugitive' }
-    use {'tpope/vim-rhubarb' }
-    use {'junegunn/gv.vim' }
+    use { 'tpope/vim-fugitive' }
+    use { 'tpope/vim-rhubarb' }
+    use { 'junegunn/gv.vim' }
 
     use { 'luochen1990/rainbow',
-    config = function()
-        vim.g.rainbow_active = 1
-    end
+        config = function()
+            vim.g.rainbow_active = 1
+        end
 
     }
     -- Tag generators
     --
     use { 'preservim/tagbar' }
-    use {'ludovicchabant/vim-gutentags' }
+    use { 'ludovicchabant/vim-gutentags' }
 
-    use {'kyazdani42/nvim-web-devicons'}
+    use { 'kyazdani42/nvim-web-devicons' }
 
     -- use {'folke/tokyonight.nvim', branch= 'main'}
     -- use {'olimorris/onedarkpro.nvim', branch= 'main'}
 
     -- COR
     use { 'ray-x/go.nvim', config = function()
-            require('lang.goconfig')
-        end
+        require('lang.goconfig')
+    end
     }
 
     use 'ray-x/guihua.lua' -- recommended if need floating window support
 
     -- use {'williamboman/nvim-lsp-installer'}
-    use {'williamboman/mason.nvim'}
-    use {'williamboman/mason-lspconfig.nvim'}
-    use { 'neovim/nvim-lspconfig' ,config = function()
+    use { 'williamboman/mason.nvim' }
+    use { 'williamboman/mason-lspconfig.nvim' }
+    use { 'neovim/nvim-lspconfig', config = function()
         require('lsp.nvim-lspconfig')
-    end}
+    end }
 
-    use {'hrsh7th/cmp-nvim-lsp'}
+    use { 'hrsh7th/cmp-nvim-lsp' }
     -- use {'hrsh7th/cmp-buffer'  }
-    use {'hrsh7th/cmp-path'    }
+    use { 'hrsh7th/cmp-path' }
     -- use {'hrsh7th/cmp-cmdline' }
-    use {"quangnguyen30192/cmp-nvim-ultisnips",
-            config = function()
-              -- optional call to setup (see customization section)
-                  require("cmp_nvim_ultisnips").setup{}
-            end
+    use { "quangnguyen30192/cmp-nvim-ultisnips",
+        config = function()
+            -- optional call to setup (see customization section)
+            require("cmp_nvim_ultisnips").setup {}
+        end
     }
-    use {'hrsh7th/nvim-cmp'}
+    use { 'hrsh7th/nvim-cmp' }
 
-    use {'jose-elias-alvarez/null-ls.nvim',
+    use { 'jose-elias-alvarez/null-ls.nvim',
         config = function()
             require("lsp.null-ls-config")
         end
     }
-    
 
 
-    use {'nvim-treesitter/nvim-treesitter',run = ':TSUpdate',
+
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
         config = function()
             require('core.nvim-treesitter')
         end
     }
 
-    use {'nvim-treesitter/playground'}
-    
+    use { 'nvim-treesitter/playground' }
+
     use { 'nvim-lua/popup.nvim' }
     use { 'nvim-lua/plenary.nvim' }
     use { 'nvim-telescope/telescope.nvim',
@@ -137,7 +135,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    use {'unblevable/quick-scope',
+    use { 'unblevable/quick-scope',
         config = function()
             require('core.quick-scope')
         end
@@ -155,7 +153,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    use {'romgrk/barbar.nvim',
+    use { 'romgrk/barbar.nvim',
         config = function()
             require('core.barbar')
         end,
@@ -164,25 +162,25 @@ return require('packer').startup(function(use)
 
     -- Comment --
     use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
     }
     --- EXTRA ---
-    use { 'jpalardy/vim-slime', branch='main'}
+    use { 'jpalardy/vim-slime', branch = 'main' }
     -- REPL integraion
 
-    use { 'dhruvasagar/vim-table-mode'}
-    use {'lilydjwg/fcitx.vim'}
-    use { 'tyru/open-browser.vim'}
+    use { 'dhruvasagar/vim-table-mode' }
+    use { 'lilydjwg/fcitx.vim' }
+    use { 'tyru/open-browser.vim' }
 
 
-    use { 'derekwyatt/vim-fswitch'}
-    use { 'junegunn/vim-easy-align'}
+    use { 'derekwyatt/vim-fswitch' }
+    use { 'junegunn/vim-easy-align' }
     use { 'SirVer/ultisnips',
         config = function()
-            vim.g.UltiSnipsSnippetDirectories={"~/.config/nvim/custom_snippets"}
+            vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/custom_snippets" }
             vim.g.UltiSnipsExpandTrigger = '<tab>'
             vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
             vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -196,47 +194,52 @@ return require('packer').startup(function(use)
     -- Scheme -
     --
     -- Nand 2 tetrix
-    use {'sevko/vim-nand2tetris-syntax'}
+    use { 'sevko/vim-nand2tetris-syntax' }
 
     -- Plantuml
-    use {'aklt/plantuml-syntax', ft="plantuml"}
-    use {'weirongxu/plantuml-previewer.vim', ft="plantuml"}
+    use { 'aklt/plantuml-syntax', ft = "plantuml" }
+    use { 'weirongxu/plantuml-previewer.vim', ft = "plantuml" }
     -- Latex
-    use {'lervag/vimtex',
-    -- ft = {"tex"},
-    config = function()
-        vim.opt.conceallevel=2
-        vim.g.tex_flavor = 'latex'
-        vim.g.vimtex_view_method = 'zathura'
-        -- vim.g.vimtex_view_general_viewer = 'zathura'
+    use { 'lervag/vimtex',
+        -- ft = {"tex"},
+        config = function()
+            vim.opt.conceallevel = 2
+            vim.g.tex_flavor = 'latex'
+            vim.g.vimtex_view_method = 'zathura'
+            -- vim.g.vimtex_view_general_viewer = 'zathura'
 
-        vim.g.vimtex_quickfix_mode=0
-        vim.g.vimtex_complete_close_braces = 1
-        vim.g.tex_conceal='abdmg'
+            vim.g.vimtex_quickfix_mode = 0
+            vim.g.vimtex_complete_close_braces = 1
+            vim.g.tex_conceal = 'abdmg'
 
-        vim.g.vimtex_compiler_latexmk = {
-             executable = 'latexmk',
-             options = {
-                -- '-xelatex',
-               '-shell-escape',
-               '-file-line-error',
-               '-synctex=1',
-               '-interaction=nonstopmode'
-           } }
-    end
+            vim.g.vimtex_compiler_latexmk = {
+                executable = 'latexmk',
+                options = {
+                    -- '-xelatex',
+                    '-shell-escape',
+                    '-file-line-error',
+                    '-synctex=1',
+                    '-interaction=nonstopmode'
+                }
+            }
+        end
     }
 
     -- Database
-    use {'tpope/vim-dadbod'}
+    use { 'tpope/vim-dadbod' }
     -- syntax for a bunch of languages
-    use {'justinmk/vim-syntax-extra'}
+    use { 'justinmk/vim-syntax-extra' }
 
-    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-        require('lsp.metals')
-    end})
+    use({
+        'scalameta/nvim-metals',
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require('lsp.metals')
+        end
+    })
     -- Markdown
-    use { 'ferrine/md-img-paste.vim', ft = {'markdown'} }
+    use { 'ferrine/md-img-paste.vim', ft = { 'markdown' } }
     --
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = {
+            "markdown" } end, ft = { "markdown" }, })
 end)
