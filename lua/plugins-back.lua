@@ -1,6 +1,4 @@
 return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use { 'wbthomason/packer.nvim' }
     use { 'wakatime/vim-wakatime' }
     use {
         'glacambre/firenvim',
@@ -8,7 +6,6 @@ return require('packer').startup(function(use)
             vim.fn['firenvim#install'](0)
         end
     }
-
 
     use { 'Mofiqul/vscode.nvim',
         config = function()
@@ -79,10 +76,6 @@ return require('packer').startup(function(use)
     use { 'preservim/tagbar' }
     use { 'ludovicchabant/vim-gutentags' }
 
-    use { 'kyazdani42/nvim-web-devicons' }
-
-    -- use {'folke/tokyonight.nvim', branch= 'main'}
-    -- use {'olimorris/onedarkpro.nvim', branch= 'main'}
 
     -- COR
     use { 'ray-x/go.nvim', config = function()
@@ -92,12 +85,8 @@ return require('packer').startup(function(use)
 
     use 'ray-x/guihua.lua' -- recommended if need floating window support
 
-    -- use {'williamboman/nvim-lsp-installer'}
     use { 'williamboman/mason.nvim' }
     use { 'williamboman/mason-lspconfig.nvim' }
-    use { 'neovim/nvim-lspconfig', config = function()
-        require('lsp.nvim-lspconfig')
-    end }
 
     use { 'hrsh7th/cmp-nvim-lsp' }
     -- use {'hrsh7th/cmp-buffer'  }
@@ -140,26 +129,6 @@ return require('packer').startup(function(use)
             require('core.quick-scope')
         end
     }
-    -- status line
-    use { 'nvim-lualine/lualine.nvim',
-        config = function()
-            require('core.lualine')
-        end,
-        event = "BufWinEnter"
-    }
-    use { 'kyazdani42/nvim-tree.lua',
-        config = function()
-            require('core.nvim-tree')
-        end
-    }
-
-    use { 'romgrk/barbar.nvim',
-        config = function()
-            require('core.barbar')
-        end,
-        event = "BufWinEnter",
-    }
-
     -- Comment --
     use {
         'numToStr/Comment.nvim',
@@ -230,6 +199,7 @@ return require('packer').startup(function(use)
     -- syntax for a bunch of languages
     use { 'justinmk/vim-syntax-extra' }
 
+
     use({
         'scalameta/nvim-metals',
         requires = { "nvim-lua/plenary.nvim" },
@@ -240,6 +210,5 @@ return require('packer').startup(function(use)
     -- Markdown
     use { 'ferrine/md-img-paste.vim', ft = { 'markdown' } }
     --
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = {
-            "markdown" } end, ft = { "markdown" }, })
+
 end)
